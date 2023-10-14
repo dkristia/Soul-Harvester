@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://fxcy6ik66bad"]
+
+[ext_resource type="Texture2D" uid="uid://t7n25g7bmk2k" path="res://icon.svg" id="1_0je4v"]
+[ext_resource type="Script" path="res://Objects/Soul/soul.gd" id="1_80oym"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0sjfb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0je4v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_emv7u"]
+
+[node name="Soul" type="Area2D" groups=["soul"]]
+script = ExtResource("1_80oym")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.599994, 0.599994)
+sprite_frames = SubResource("SpriteFrames_0sjfb")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+scale = Vector2(4, 4)
+shape = SubResource("CircleShape2D_emv7u")

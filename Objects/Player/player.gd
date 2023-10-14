@@ -37,4 +37,4 @@ func get_directions():
 
 func _on_pickup_radius_area_entered(area):
 	if area.is_in_group("soul"):
-		area.queue_free()
+		area.position = position

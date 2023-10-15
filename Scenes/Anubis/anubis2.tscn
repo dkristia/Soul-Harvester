@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b1fxom4ab1fd3"]
+[gd_scene load_steps=7 format=3 uid="uid://b1fxom4ab1fd3"]
 
 [ext_resource type="Script" path="res://Scenes/Anubis/anubis2.gd" id="1_2l6qc"]
 [ext_resource type="Texture2D" uid="uid://t7n25g7bmk2k" path="res://icon.svg" id="1_cwhth"]
+[ext_resource type="Script" path="res://Scenes/Anubis/Good.gd" id="2_d8od8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_485iq"]
 size = Vector2(77.8571, 20)
@@ -18,7 +19,10 @@ script = ExtResource("1_2l6qc")
 position = Vector2(390, 450)
 collision_layer = 2
 collision_mask = 2
+mass = 1.2
 lock_rotation = true
+freeze_mode = 1
+script = ExtResource("2_d8od8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Good"]
 scale = Vector2(0.960001, 3.64)

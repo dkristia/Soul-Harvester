@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed = 20
+@export var speed = 2000
 @onready var global = $"/root/Global"
 
 func _ready():

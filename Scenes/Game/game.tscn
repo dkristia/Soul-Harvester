@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://wwfow3wd3cb1"]
+[gd_scene load_steps=4 format=3 uid="uid://wwfow3wd3cb1"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_f5epg"]
 [ext_resource type="PackedScene" uid="uid://cjb5sf04lvpfr" path="res://Objects/Player/player.tscn" id="1_vj3yr"]
-[ext_resource type="PackedScene" uid="uid://fxcy6ik66bad" path="res://Objects/Soul/soul.tscn" id="2_lndwe"]
 [ext_resource type="PackedScene" uid="uid://dmtf1ngn0r3sk" path="res://Scenes/GUI/GUI.tscn" id="4_a5h50"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_f5epg")
 
 [node name="Player" parent="." instance=ExtResource("1_vj3yr")]
-
-[node name="Soul" parent="." instance=ExtResource("2_lndwe")]
 
 [node name="SoulSpawner" type="Timer" parent="."]
 autostart = true

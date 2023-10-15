@@ -5,6 +5,3 @@ extends Sprite2D
 func _ready():
 	modulate.a = 0
 	scale = Vector2(0.2, 0.2)
-
-func _process(delta):
-	

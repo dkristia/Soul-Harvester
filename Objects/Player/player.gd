@@ -1,9 +1,12 @@
 extends CharacterBody2D
 
 @export var speed = 20
+@onready var global = $"/root/Global"
 
 func _ready():
-	position = get_viewport().get_visible_rect().size/2
+	var spawnpos = get_viewport().get_visible_rect().size/2
+	position = spawnpos
+	
 
 func _physics_process(delta):
 	var directions = get_directions()
@@ -37,4 +40,5 @@ func get_directions():
 
 func _on_pickup_radius_area_entered(area):
 	if area.is_in_group("soul"):
-		area.position = position
+		global.souls += 1
+		area.queue_free()

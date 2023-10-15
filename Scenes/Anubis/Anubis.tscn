@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cli06l4nsl4m4"]
+
+[ext_resource type="Script" path="res://Scenes/Anubis/Anubis.gd" id="1_o6qfu"]
+[ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/soul.png" id="1_u7faf"]
+
+[node name="Anubis" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o6qfu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -50.0
+offset_right = 102.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Good" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer/Good"]
+layout_mode = 2
+color = Color(0, 0.898039, 0.0117647, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/Good"]
+layout_mode = 2
+texture = ExtResource("1_u7faf")
+
+[node name="Bad" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer/Bad"]
+layout_mode = 2
+color = Color(1, 0.188235, 0.0117647, 1)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/Bad"]
+layout_mode = 2
+texture = ExtResource("1_u7faf")

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmtf1ngn0r3sk"]
+[gd_scene load_steps=5 format=3 uid="uid://dmtf1ngn0r3sk"]
 
 [ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/soul.png" id="1_1s835"]
 [ext_resource type="Script" path="res://Scenes/GUI/GUI.gd" id="1_cfqvc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ybedg"]
 font_size = 60
+
+[sub_resource type="LabelSettings" id="LabelSettings_yrxky"]
+font_size = 51
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -36,10 +39,18 @@ size_flags_horizontal = 8
 text = "0"
 label_settings = SubResource("LabelSettings_ybedg")
 
-[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/MarginContainer2"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/MarginContainer4"]
 texture_filter = 1
 layout_mode = 2
 texture = ExtResource("1_1s835")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+
+[node name="De_Anu" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer3"]
+layout_mode = 2
+text = "Death"
+label_settings = SubResource("LabelSettings_yrxky")

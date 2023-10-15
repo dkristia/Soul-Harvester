@@ -40,5 +40,8 @@ func get_directions():
 
 func _on_pickup_radius_area_entered(area):
 	if area.is_in_group("soul"):
-		global.souls += 1
+		if global.AnubisMode:
+			global.Asouls += 1
+		else:
+			global.Dsouls += 1
 		area.queue_free()

@@ -68,5 +68,9 @@ position = Vector2(120, 0)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("6_5c2id")
 
+[node name="Dashimer" type="Timer" parent="."]
+wait_time = 5.0
+
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_pickup_radius_area_entered"]
 [connection signal="area_entered" from="InnerPickupRadius" to="." method="_on_inner_pickup_radius_area_entered"]
+[connection signal="timeout" from="Dashimer" to="." method="_on_dashimer_timeout"]

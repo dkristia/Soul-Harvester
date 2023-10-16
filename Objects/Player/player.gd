@@ -4,6 +4,9 @@ extends CharacterBody2D
 
 var default_radius = Vector2(1, 1)
 
+var DashAvailable = true
+var dashedDistance = 0
+
 func _ready():
 	var spawnpos = get_viewport().get_visible_rect().size/2
 	position = spawnpos
@@ -19,6 +22,23 @@ func _physics_process(delta):
 	
 	velocity = directions * global.speed * delta
 	
+	if Input.is_action_pressed("Dash") and DashAvailable:
+		velocity = directions * global.speed * 2 * delta
+		dashedDistance += 45 * delta
+		
+		if dashedDistance > 10:
+			DashAvailable = false
+			
+			var timer = $Dashimer
+			timer.wait_time = 4
+			timer.start()
+	elif Input.is_action_just_released("Dash") and DashAvailable:
+			DashAvailable = false
+			
+			var timer = $Dashimer
+			timer.wait_time = 4
+			timer.start()
+			
 	move_and_slide()
 	
 func get_directions():
@@ -64,3 +84,7 @@ func _anubis_main_ability():
 	
 func _death_main_ability():
 	print("DEATH")
+
+func _on_dashimer_timeout():
+	DashAvailable=true
+	dashedDistance=0

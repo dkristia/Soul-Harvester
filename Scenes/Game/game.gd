@@ -1,14 +1,15 @@
 extends Node2D
 
 var timer
-@onready var animationPlayed = false
+var animationPlayed = false
 @onready var _soul = preload("res://Objects/Soul/soul.tscn")
 @onready var global = $"/root/Global"
 @onready var _animated_sprite = $GUI/CanvasLayer/ColorRect/AnimatedSprite2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if Input.is_action_just_pressed("Anubis"):
+
+	if Input.is_action_just_pressed("switchMode"):
 		global.AnubisMode = !global.AnubisMode
 		global.souls = 0
 		global.sLevel = 1

@@ -2,6 +2,7 @@ extends Node2D
 
 
 # Called when the node enters the scene tree for the first time.
+var timer
 @onready var animationPlayed = false
 @onready var _soul = preload("res://Objects/Soul/soul.tscn")
 @onready var global = $"/root/Global"
@@ -18,7 +19,7 @@ func _process(delta):
 			global.score += global.souls * global.sLevel * 2
 			global.good -= global.souls * global.sLevel
 		else:
-			global.good += global.souls * global.sLevel / 2
+			global.good += global.souls * global.sLevel 
 			global.score += global.souls * global.sLevel
 		global.souls = 0
 		
@@ -28,5 +29,6 @@ func _process(delta):
 		animationPlayed = true
 		
 func _on_soul_spawner_timeout():
-	var soul = _soul.instantiate()
+	var soul = _soul.instantiate() 
 	add_child(soul)
+

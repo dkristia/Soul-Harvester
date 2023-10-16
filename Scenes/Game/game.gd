@@ -1,25 +1,25 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 var timer
 @onready var animationPlayed = false
 @onready var _soul = preload("res://Objects/Soul/soul.tscn")
 @onready var global = $"/root/Global"
 @onready var _animated_sprite = $GUI/CanvasLayer/ColorRect/AnimatedSprite2D
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	print(global.bad)
+func _process(_delta):
 	if Input.is_action_just_pressed("Anubis"):
 		global.AnubisMode = !global.AnubisMode
 		global.souls = 0
 		global.sLevel = 1
 
-	if Input.is_action_pressed("sell"):
+	if Input.is_action_just_pressed("sell"):
 		if !global.AnubisMode:
+			print("death")
 			global.score += global.souls * global.sLevel * 2
 			global.bad += global.souls * global.sLevel
 		else:
+			print("good")
 			global.good += global.souls * global.sLevel 
 			global.score += global.souls * global.sLevel
 		global.souls = 0

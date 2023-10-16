@@ -8,7 +8,7 @@ extends Control
 @onready var AnubisPixelart = $"CanvasLayer/TextureRect"
 @onready var DeathPixelart = $"CanvasLayer/MarginContainer7/TextureRect2"
 
-func _process(delta):
+func _process(_delta):
 	soulLabel.text = str(global.souls)
 	scoreLabel.text = "score: " + str(global.score)
 	sellLevel.text = "current sell level: " + str(global.sLevel)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjb5sf04lvpfr"]
+[gd_scene load_steps=12 format=3 uid="uid://cjb5sf04lvpfr"]
 
 [ext_resource type="Texture2D" uid="uid://t7n25g7bmk2k" path="res://icon.svg" id="1_fke4s"]
 [ext_resource type="Script" path="res://Objects/Player/player.gd" id="1_jhjqj"]
@@ -6,13 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://dk18t2m2vlsbr" path="res://Objects/Player/radius.tscn" id="3_5jch1"]
 [ext_resource type="Script" path="res://Objects/Player/camera.gd" id="5_kan6u"]
 [ext_resource type="Texture2D" uid="uid://ddb3hpb72ns4w" path="res://Assets/staff.png" id="6_5c2id"]
+[ext_resource type="Script" path="res://Objects/Player/Staff.gd" id="6_5uqvr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qokj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2eqvl"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_dyyid"]
-radius = 83.1505
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_id8y5"]
 animations = [{
@@ -25,37 +23,44 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_dyyid"]
+radius = 45.0444
+
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
 script = ExtResource("1_jhjqj")
 
 [node name="PickupRadius" type="Area2D" parent="."]
+scale = Vector2(2, 2)
 script = ExtResource("2_k3vsl")
 
 [node name="Radius" parent="PickupRadius" instance=ExtResource("3_5jch1")]
 modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.325, 0.325)
 
 [node name="Hitbox" type="CollisionShape2D" parent="PickupRadius"]
-scale = Vector2(20, 20)
+scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_6qokj")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 scale = Vector2(6.36, 6.36)
 shape = SubResource("RectangleShape2D_2eqvl")
 
+[node name="MainSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_id8y5")
+
 [node name="InnerPickupRadius" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InnerPickupRadius"]
 shape = SubResource("CircleShape2D_dyyid")
 
-[node name="MainSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_id8y5")
+[node name="Staff" type="Node2D" parent="."]
+script = ExtResource("6_5uqvr")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Staff"]
+position = Vector2(120, 0)
 position_smoothing_enabled = true
 script = ExtResource("5_kan6u")
-
-[node name="Staff" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="Staff"]
 texture_filter = 1

@@ -2,6 +2,8 @@ extends Camera2D
 
 var starting = true
 
+var interpolate_val = 1
+
 func _ready():
 	zoom = Vector2(0.01, 0.01)
 

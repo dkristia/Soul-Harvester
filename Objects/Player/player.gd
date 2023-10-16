@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-@export var speed = 20
 @onready var global = $"/root/Global"
+
+var default_radius = Vector2(1, 1)
 
 func _ready():
 	var spawnpos = get_viewport().get_visible_rect().size/2
@@ -11,25 +12,14 @@ func _ready():
 func _physics_process(delta):
 	var directions = get_directions()
 	
-	$Staff.look_at(get_global_mouse_position())
+	$PickupRadius.scale = default_radius * global.radius
 	
-	if $Staff.rotation_degrees >= 270:
-		$Staff.rotation_degrees -= 360
-	elif $Staff.rotation_degrees <= -270:
-		$Staff.rotation_degrees += 360
-		
+	if Input.is_action_just_pressed("main_ability"):
+		_anubis_main_ability() if global.AnubisMode else _death_main_ability()
 	
-	if 90 > $Staff.rotation_degrees and $Staff.rotation_degrees > -90:
-		$Staff.scale.y = abs($Staff.scale.y)
-	else:
-		$Staff.scale.y = -abs($Staff.scale.y)
-	
-	velocity = directions * speed * delta
+	velocity = directions * global.speed * delta
 	
 	move_and_slide()
-	
-	
-	
 	
 func get_directions():
 	var directions = Vector2(
@@ -66,3 +56,11 @@ func _on_inner_pickup_radius_area_entered(area):
 		if global.souls == 5 * global.sLevel ** 2:
 			global.sLevel += 1
 		area.queue_free()
+
+func _anubis_main_ability():
+	if !$PickupRadius.activated:
+		global.ability_radius_multiplier = 10
+		$PickupRadius.activated = true
+	
+func _death_main_ability():
+	print("DEATH")

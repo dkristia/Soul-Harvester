@@ -12,6 +12,7 @@ func _process(delta):
 	if Input.is_action_pressed("Death"):
 		global.AnubisMode = false
 		global.DeathLabel = "Death"
+	
 func _on_soul_spawner_timeout():
 	var soul = _soul.instantiate()
 	add_child(soul)

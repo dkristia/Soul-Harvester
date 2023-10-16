@@ -31,7 +31,6 @@ texture = ExtResource("3_ujnsl")
 [node name="holder" type="Sprite2D" parent="CanvasLayer/stick"]
 texture_filter = 1
 position = Vector2(-20, 0)
-scale = Vector2(1, 1)
 texture = ExtResource("1_bkvgi")
 offset = Vector2(0, 13)
 

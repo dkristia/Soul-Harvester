@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7qwsdk0q0q8g"]
+
+[ext_resource type="Script" path="res://Scenes/StartManu/Menu.gd" id="1_7l73n"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_7l73n")
+
+[node name="Play" type="Button" parent="."]
+offset_left = 69.0
+offset_top = 142.0
+offset_right = 1208.0
+offset_bottom = 576.0
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]

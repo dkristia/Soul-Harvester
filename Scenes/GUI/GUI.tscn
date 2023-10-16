@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dmtf1ngn0r3sk"]
 
-[ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/soul.png" id="1_1s835"]
 [ext_resource type="Script" path="res://Scenes/GUI/GUI.gd" id="1_cfqvc"]
+[ext_resource type="Texture2D" uid="uid://btg4kt2a8u0wg" path="res://Assets/AnubisEyes.png" id="2_f2i5n"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ybedg"]
 font_size = 60
@@ -43,9 +43,11 @@ label_settings = SubResource("LabelSettings_ybedg")
 layout_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/MarginContainer4"]
+visible = false
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("1_1s835")
+texture = ExtResource("2_f2i5n")
+expand_mode = 2
 
 [node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2

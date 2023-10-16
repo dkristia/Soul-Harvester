@@ -9,6 +9,7 @@ var timer
 @onready var _animated_sprite = $GUI/CanvasLayer/ColorRect/AnimatedSprite2D
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(global.bad)
 	if Input.is_action_just_pressed("Anubis"):
 		global.AnubisMode = !global.AnubisMode
 		global.souls = 0
@@ -17,7 +18,7 @@ func _process(delta):
 	if Input.is_action_pressed("sell"):
 		if !global.AnubisMode:
 			global.score += global.souls * global.sLevel * 2
-			global.good -= global.souls * global.sLevel
+			global.bad += global.souls * global.sLevel
 		else:
 			global.good += global.souls * global.sLevel 
 			global.score += global.souls * global.sLevel
@@ -27,6 +28,9 @@ func _process(delta):
 		_animated_sprite.play("EyesOpen")
 		await _animated_sprite.animation_finished
 		animationPlayed = true
+		
+	if  global.bad/global.good > 2:
+		global.dead = true
 		
 func _on_soul_spawner_timeout():
 	var soul = _soul.instantiate() 

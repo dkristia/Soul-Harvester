@@ -13,15 +13,6 @@
 [sub_resource type="LabelSettings" id="LabelSettings_ybedg"]
 font_size = 60
 
-[sub_resource type="LabelSettings" id="LabelSettings_vhdlf"]
-font_size = 30
-
-[sub_resource type="LabelSettings" id="LabelSettings_h41ma"]
-font_size = 25
-
-[sub_resource type="LabelSettings" id="LabelSettings_yrxky"]
-font_size = 30
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_6mj87"]
 animations = [{
 "frames": [{
@@ -47,6 +38,15 @@ animations = [{
 "name": &"EyesOpen",
 "speed": 20.0
 }]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vhdlf"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_h41ma"]
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_yrxky"]
+font_size = 30
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -95,6 +95,13 @@ offset_left = 421.0
 offset_right = 903.0
 offset_bottom = 92.0
 color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect"]
+texture_filter = 1
+position = Vector2(239, 55)
+scale = Vector2(9.945, 9.48)
+sprite_frames = SubResource("SpriteFrames_6mj87")
+animation = &"EyesOpen"
 
 [node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer"]
 offset_left = 41.0
@@ -147,10 +154,3 @@ offset_bottom = 168.0
 layout_mode = 2
 text = "Servant of the ancient Anubis"
 label_settings = SubResource("LabelSettings_yrxky")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
-texture_filter = 1
-position = Vector2(660, 55)
-scale = Vector2(9.945, 9.48)
-sprite_frames = SubResource("SpriteFrames_6mj87")
-animation = &"EyesOpen"

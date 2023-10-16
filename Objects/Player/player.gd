@@ -24,8 +24,6 @@ func _physics_process(delta):
 	else:
 		$Staff.scale.y = -abs($Staff.scale.y)
 	
-	print($Staff.rotation_degrees)
-	
 	velocity = directions * speed * delta
 	
 	move_and_slide()

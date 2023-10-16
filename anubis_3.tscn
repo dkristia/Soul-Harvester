@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://brxhn4v5jtjaq"]
+[gd_scene load_steps=5 format=3 uid="uid://cnks7lsr6da2l"]
 
 [ext_resource type="Texture2D" uid="uid://cqktkmf522tjo" path="res://Assets/scale/holder.png" id="1_bkvgi"]
 [ext_resource type="Script" path="res://anubis_3.gd" id="1_ecpau"]

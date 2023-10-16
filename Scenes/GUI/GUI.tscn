@@ -1,13 +1,52 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmtf1ngn0r3sk"]
+[gd_scene load_steps=15 format=3 uid="uid://dmtf1ngn0r3sk"]
 
 [ext_resource type="Script" path="res://Scenes/GUI/GUI.gd" id="1_cfqvc"]
 [ext_resource type="Texture2D" uid="uid://btg4kt2a8u0wg" path="res://Assets/AnubisEyes.png" id="2_f2i5n"]
+[ext_resource type="Texture2D" uid="uid://b0xh60rrfcnot" path="res://Assets/pixil-frame-0 (6).png" id="3_6s356"]
+[ext_resource type="Texture2D" uid="uid://bvmsp272pk55a" path="res://Assets/anubis.png" id="3_b2jcu"]
+[ext_resource type="Texture2D" uid="uid://bipsoskot2b62" path="res://Assets/pixil-frame-0 (5).png" id="4_1h3hf"]
+[ext_resource type="Texture2D" uid="uid://cy8tqfmavbb0v" path="res://Assets/pixil-frame-0 (4).png" id="5_vic81"]
+[ext_resource type="Texture2D" uid="uid://c5tgv83uryobx" path="res://Assets/pixil-frame-0 (2).png" id="6_gkdx4"]
+[ext_resource type="Texture2D" uid="uid://c223h8twhdvul" path="res://Assets/pixil-frame-0 (1).png" id="7_7bb7o"]
+[ext_resource type="Texture2D" uid="uid://dkqqtxa6r5xaq" path="res://Assets/Death.png" id="8_k5lcd"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ybedg"]
 font_size = 60
 
+[sub_resource type="LabelSettings" id="LabelSettings_vhdlf"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_h41ma"]
+font_size = 25
+
 [sub_resource type="LabelSettings" id="LabelSettings_yrxky"]
-font_size = 51
+font_size = 30
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mj87"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("3_6s356")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_1h3hf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_vic81")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gkdx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_7bb7o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f2i5n")
+}],
+"loop": false,
+"name": &"EyesOpen",
+"speed": 20.0
+}]
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -24,8 +63,10 @@ script = ExtResource("1_cfqvc")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -222.0
+offset_top = -15.0
+offset_right = 72.0
+offset_bottom = 85.0
 grow_horizontal = 0
 size_flags_horizontal = 8
 
@@ -49,10 +90,66 @@ layout_mode = 2
 texture = ExtResource("2_f2i5n")
 expand_mode = 2
 
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 249.0
+offset_right = 903.0
+offset_bottom = 92.0
+color = Color(0, 0, 0, 1)
 
-[node name="De_Anu" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer3"]
+[node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 41.0
+offset_top = -7.0
+offset_right = 102.0
+offset_bottom = 93.0
+
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer6"]
 layout_mode = 2
-text = "Death"
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_vhdlf")
+
+[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 937.0
+offset_top = 61.0
+offset_right = 1150.0
+offset_bottom = 101.0
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer5"]
+layout_mode = 2
+text = "current sell level: "
+label_settings = SubResource("LabelSettings_h41ma")
+
+[node name="MarginContainer7" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 280.0
+offset_top = -4.0
+offset_right = 398.0
+offset_bottom = 96.0
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer7"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("8_k5lcd")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+offset_left = 271.0
+offset_top = -27.0
+offset_right = 371.0
+offset_bottom = 73.0
+texture = ExtResource("3_b2jcu")
+
+[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 427.0
+offset_top = 68.0
+offset_right = 854.0
+offset_bottom = 168.0
+
+[node name="De_Anu" type="Label" parent="CanvasLayer/MarginContainer3"]
+layout_mode = 2
+text = "Servant of the ancient Anubis"
 label_settings = SubResource("LabelSettings_yrxky")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+texture_filter = 1
+position = Vector2(660, 55)
+scale = Vector2(9.945, 9.48)
+sprite_frames = SubResource("SpriteFrames_6mj87")
+animation = &"EyesOpen"

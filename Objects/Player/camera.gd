@@ -15,6 +15,7 @@ func _process(delta):
 			zoom -= zoomamount
 		if Input.is_action_just_pressed("zoomin"):
 			zoom += zoomamount
+
 		
 	if zoom.x > 3:
 		zoom = Vector2(3, 3)

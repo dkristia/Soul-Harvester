@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://wwfow3wd3cb1"]
+[gd_scene load_steps=4 format=3 uid="uid://wwfow3wd3cb1"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_f5epg"]
 [ext_resource type="PackedScene" uid="uid://cjb5sf04lvpfr" path="res://Objects/Player/player.tscn" id="1_vj3yr"]
 [ext_resource type="PackedScene" uid="uid://dmtf1ngn0r3sk" path="res://Scenes/GUI/GUI.tscn" id="4_a5h50"]
-[ext_resource type="PackedScene" uid="uid://cnks7lsr6da2l" path="res://anubis_3.tscn" id="4_o0pye"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_f5epg")
@@ -14,7 +13,5 @@ script = ExtResource("1_f5epg")
 autostart = true
 
 [node name="GUI" parent="." instance=ExtResource("4_a5h50")]
-
-[node name="anubis3" parent="." instance=ExtResource("4_o0pye")]
 
 [connection signal="timeout" from="SoulSpawner" to="." method="_on_soul_spawner_timeout"]

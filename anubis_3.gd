@@ -14,6 +14,7 @@ func _process(delta):
 	if stick.rotation_degrees > 45:
 		stick.rotation_degrees = 45
 	elif stick.rotation_degrees < -45:
+		global.dead = true
 		stick.rotation_degrees = -45
 
 	holder1.rotation = -stick.rotation

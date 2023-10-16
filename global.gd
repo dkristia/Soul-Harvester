@@ -2,11 +2,14 @@ extends Node
 
 @export var DeathLabel = "Death" 
 @export var AnubisMode = false
-@export var EyesVisible = false
-@export var Asouls = 0
-@export var Dsouls = 0
-@export var good = 1
-@export var bad = 1
+@export var levelModifier = 1
+@export var sLevel = 1
+@export var dead = false
+@export var souls = 0
+@export var score = 0
+@export var good = 100
+@export var bad = 100
+
 
 func _process(delta):
 	if bad < 0:

@@ -10,7 +10,7 @@ var dashedDistance = 0
 func _ready():
 	var spawnpos = get_viewport().get_visible_rect().size/2
 	position = spawnpos
-	
+	$MainSprite.play("Ddefault")
 
 func _physics_process(delta):
 	var directions = get_directions()
@@ -20,10 +20,17 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("main_ability"):
 		_anubis_main_ability() if global.AnubisMode else _death_main_ability()
 	
+	if Input.get_action_strength("right") or Input.get_action_strength("left") or Input.get_action_strength("down") or Input.get_action_strength("up"):
+		playanim()
 	velocity = directions * global.speed * delta
 	
+	if  Input.is_action_just_pressed("left"):
+		$MainSprite.set_flip_h(true)
+	elif Input.is_action_just_pressed("right"):
+		$MainSprite.set_flip_h(false)
+	
 	if Input.is_action_pressed("Dash") and DashAvailable:
-		velocity = directions * global.speed * 2 * delta
+		velocity = directions * global.speed * 5 * delta
 		dashedDistance += 45 * delta
 		
 		if dashedDistance > 10:
@@ -46,6 +53,7 @@ func get_directions():
 		(Input.get_action_strength("right") - Input.get_action_strength("left")), 
 		(Input.get_action_strength("down") - Input.get_action_strength("up"))
 	)
+
 	
 	if abs(directions).x + abs(directions.y) >= sqrt(2):
 		var dirx
@@ -88,3 +96,13 @@ func _death_main_ability():
 func _on_dashimer_timeout():
 	DashAvailable=true
 	dashedDistance=0
+
+func playanim():
+	if global.AnubisMode:
+		$MainSprite.play("Awalking")
+		await $MainSprite.animation_finished
+		$MainSprite.play("Adefault")
+	else:
+		$MainSprite.play("Dwalking")
+		await $MainSprite.animation_finished
+		$MainSprite.play("Ddefault")

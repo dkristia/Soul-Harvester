@@ -1,17 +1,17 @@
 [gd_scene load_steps=5 format=3 uid="uid://fxcy6ik66bad"]
 
 [ext_resource type="Script" path="res://Objects/Soul/soul.gd" id="1_80oym"]
-[ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/soul.png" id="2_2mcv5"]
+[ext_resource type="Texture2D" uid="uid://b0ibqxh3vhquk" path="res://Assets/citizen.png" id="3_fjlqx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0sjfb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_2mcv5")
+"texture": ExtResource("3_fjlqx")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 0.5
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_emv7u"]
@@ -20,7 +20,8 @@ animations = [{
 script = ExtResource("1_80oym")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.599994, 0.599994)
+position = Vector2(337.25, 109)
+scale = Vector2(3.875, 3.14)
 sprite_frames = SubResource("SpriteFrames_0sjfb")
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]

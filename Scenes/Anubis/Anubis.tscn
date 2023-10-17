@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://cnks7lsr6da2l"]
 
-[ext_resource type="Texture2D" uid="uid://cqktkmf522tjo" path="res://Assets/scale/holder.png" id="1_bkvgi"]
-[ext_resource type="Script" path="res://Scenes/Anubis/anubis.gd" id="1_ecpau"]
-[ext_resource type="Texture2D" uid="uid://l4a1rtrgy1ya" path="res://Assets/scale/handle.png" id="2_jgyjf"]
-[ext_resource type="Texture2D" uid="uid://mjtv0kbu78bq" path="res://Assets/scale/stick.png" id="3_ujnsl"]
+[ext_resource type="Script" path="res://Scenes/Anubis/anubis.gd" id="1_d82hm"]
+[ext_resource type="Texture2D" uid="uid://l4a1rtrgy1ya" path="res://Assets/scale/handle.png" id="2_fjvpa"]
+[ext_resource type="Texture2D" uid="uid://mjtv0kbu78bq" path="res://Assets/scale/stick.png" id="3_so5qa"]
+[ext_resource type="Texture2D" uid="uid://cqktkmf522tjo" path="res://Assets/scale/holder.png" id="4_w8ri2"]
 
 [node name="anubis3" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ecpau")
+script = ExtResource("1_d82hm")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -20,18 +20,18 @@ script = ExtResource("1_ecpau")
 texture_filter = 1
 position = Vector2(640, 400)
 scale = Vector2(7, 7)
-texture = ExtResource("2_jgyjf")
+texture = ExtResource("2_fjvpa")
 
 [node name="stick" type="Sprite2D" parent="CanvasLayer"]
 texture_filter = 1
 position = Vector2(640, 260)
 scale = Vector2(7, 7)
-texture = ExtResource("3_ujnsl")
+texture = ExtResource("3_so5qa")
 
 [node name="holder" type="Sprite2D" parent="CanvasLayer/stick"]
 texture_filter = 1
 position = Vector2(-20, 0)
-texture = ExtResource("1_bkvgi")
+texture = ExtResource("4_w8ri2")
 offset = Vector2(0, 13)
 
 [node name="Label" type="Label" parent="CanvasLayer/stick/holder"]
@@ -43,7 +43,7 @@ offset_bottom = 11.5714
 [node name="holder2" type="Sprite2D" parent="CanvasLayer/stick"]
 texture_filter = 1
 position = Vector2(20, 0)
-texture = ExtResource("1_bkvgi")
+texture = ExtResource("4_w8ri2")
 offset = Vector2(0, 13)
 
 [node name="Label" type="Label" parent="CanvasLayer/stick/holder2"]

@@ -2,7 +2,6 @@ extends Area2D
 
 var mode = 1
 @onready var sprite = $Radius
-@onready var _radius = preload("res://Objects/Player/radius.tscn")
 @onready var global = $"/root/Global"
 
 @export var activated = false

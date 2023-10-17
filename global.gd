@@ -13,7 +13,7 @@ extends Node
 @export var class_multiplier = 1
 @export var ability_radius_multiplier = 1
 @export var radius = 1
-@export var speed = 20
+@export var speed = 40
 
 
 func _process(_delta):

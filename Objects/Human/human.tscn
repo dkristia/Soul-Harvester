@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7c21lsb7oyvi"]
+
+[ext_resource type="Texture2D" uid="uid://b0ibqxh3vhquk" path="res://Assets/citizen.png" id="1_icdcx"]
+[ext_resource type="Script" path="res://Objects/Human/human.gd" id="1_ix0mk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gi75"]
+size = Vector2(29, 47)
+
+[node name="human" type="Area2D" groups=["human"]]
+scale = Vector2(3, 3)
+script = ExtResource("1_ix0mk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_icdcx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_8gi75")
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.035
+autostart = true
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]

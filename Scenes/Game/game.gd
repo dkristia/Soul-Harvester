@@ -2,7 +2,7 @@ extends Node2D
 
 var timer
 var animationPlayed = false
-@onready var _soul = preload("res://Objects/Soul/soul.tscn")
+@onready var _soul = preload("res://Objects/Human/human.tscn")
 @onready var global = $"/root/Global"
 @onready var _animated_sprite = $GUI/CanvasLayer/EyeContainer/Eyes/EyeSprite
 @onready var _allegiance_icon = $GUI/CanvasLayer/LeftBox/AllegianceIcon
@@ -31,7 +31,7 @@ func _process(_delta):
 		global.souls = 0
 		
 	if global.dead and !animationPlayed:
-		_animated_sprite.play("EyesOpen")
+		_animated_sprite.play("eyes_open")
 		await _animated_sprite.animation_finished
 		animationPlayed = true
 		

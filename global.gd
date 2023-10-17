@@ -17,7 +17,6 @@ extends Node
 
 
 func _process(_delta):
-	speed = 20 if AnubisMode else 40
 	class_multiplier = 2 if AnubisMode else 1
 	radius = radius_multiplier * class_multiplier * ability_radius_multiplier
 	if bad < 0:

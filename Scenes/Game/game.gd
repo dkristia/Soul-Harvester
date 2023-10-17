@@ -4,13 +4,18 @@ var timer
 var animationPlayed = false
 @onready var _soul = preload("res://Objects/Soul/soul.tscn")
 @onready var global = $"/root/Global"
-@onready var _animated_sprite = $GUI/CanvasLayer/ColorRect/AnimatedSprite2D
+@onready var _animated_sprite = $GUI/CanvasLayer/EyeContainer/Eyes/EyeSprite
+@onready var _allegiance_icon = $GUI/CanvasLayer/LeftBox/AllegianceIcon
+var anubis_path = preload("res://Assets/Icons/Anubisss.png")
+var death_path = preload("res://Assets/Icons/Death.png")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 
 	if Input.is_action_just_pressed("switchMode"):
 		global.AnubisMode = !global.AnubisMode
+		global.speed = 20 if global.AnubisMode else 40
+		_allegiance_icon.texture = anubis_path if global.AnubisMode == true else death_path
 		global.souls = 0
 		global.sLevel = 1
 

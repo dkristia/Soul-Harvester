@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://ck3xp442fp54x" path="res://Assets/dude.png" id="4_6csju"]
 [ext_resource type="Script" path="res://Objects/Player/camera.gd" id="5_kan6u"]
 [ext_resource type="Texture2D" uid="uid://cme67x4s7s4bc" path="res://Assets/walkframe1.png" id="5_oapd5"]
-[ext_resource type="Texture2D" uid="uid://ddb3hpb72ns4w" path="res://Assets/staff.png" id="6_5c2id"]
 [ext_resource type="Script" path="res://Objects/Player/Staff.gd" id="6_5uqvr"]
 [ext_resource type="Texture2D" uid="uid://cbubsc2hpspsu" path="res://Assets/walkframe2.png" id="6_iwnyg"]
 [ext_resource type="Texture2D" uid="uid://dpjmrrl41y1xd" path="res://Assets/walkframe3.png" id="7_1g2y5"]
+[ext_resource type="Texture2D" uid="uid://ddb3hpb72ns4w" path="res://Assets/Player/staff.png" id="7_ylhwa"]
 [ext_resource type="Texture2D" uid="uid://6ksvt6g2abpn" path="res://Assets/walkframe4.png" id="8_tmb6x"]
 [ext_resource type="Texture2D" uid="uid://bkrjw0gm5ruqg" path="res://Assets/badDude.png" id="9_xjtff"]
 [ext_resource type="Texture2D" uid="uid://bl4jondkfqek" path="res://Assets/DwalkFrame1.png" id="10_p0kf5"]
@@ -142,11 +142,15 @@ script = ExtResource("5_kan6u")
 texture_filter = 1
 position = Vector2(120, 0)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_5c2id")
+texture = ExtResource("7_ylhwa")
 
-[node name="Dashimer" type="Timer" parent="."]
+[node name="MainAbilityCooldown" type="Timer" parent="."]
 wait_time = 5.0
+
+[node name="DashTimer" type="Timer" parent="."]
+wait_time = 4.0
 
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_pickup_radius_area_entered"]
 [connection signal="area_entered" from="InnerPickupRadius" to="." method="_on_inner_pickup_radius_area_entered"]
-[connection signal="timeout" from="Dashimer" to="." method="_on_dashimer_timeout"]
+[connection signal="timeout" from="MainAbilityCooldown" to="." method="_on_main_cooldown_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

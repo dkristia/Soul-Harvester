@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qwurswltabxu"
-path="res://.godot/imported/Anubisss.png-a1a88d52452ffe5b321d76c0ea64d486.ctex"
+uid="uid://c223h8twhdvul"
+path="res://.godot/imported/pixil-frame-0 (1).png-738aa278d2334ced1ae9382e299431bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Anubisss.png"
-dest_files=["res://.godot/imported/Anubisss.png-a1a88d52452ffe5b321d76c0ea64d486.ctex"]
+source_file="res://Assets/Anubis/Eyes/pixil-frame-0 (1).png"
+dest_files=["res://.godot/imported/pixil-frame-0 (1).png-738aa278d2334ced1ae9382e299431bf.ctex"]
 
 [params]
 

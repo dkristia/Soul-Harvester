@@ -1,49 +1,54 @@
-[gd_scene load_steps=15 format=3 uid="uid://dmtf1ngn0r3sk"]
+[gd_scene load_steps=15 format=3 uid="uid://4plkn86vrwdo"]
 
 [ext_resource type="Script" path="res://Scenes/GUI/GUI.gd" id="1_cfqvc"]
-[ext_resource type="Texture2D" uid="uid://btg4kt2a8u0wg" path="res://Assets/AnubisEyes.png" id="2_f2i5n"]
-[ext_resource type="Texture2D" uid="uid://b0xh60rrfcnot" path="res://Assets/pixil-frame-0 (6).png" id="3_6s356"]
-[ext_resource type="Texture2D" uid="uid://bipsoskot2b62" path="res://Assets/pixil-frame-0 (5).png" id="4_1h3hf"]
-[ext_resource type="Texture2D" uid="uid://qwurswltabxu" path="res://Anubisss.png" id="4_emb7u"]
-[ext_resource type="Texture2D" uid="uid://cy8tqfmavbb0v" path="res://Assets/pixil-frame-0 (4).png" id="5_vic81"]
-[ext_resource type="Texture2D" uid="uid://c5tgv83uryobx" path="res://Assets/pixil-frame-0 (2).png" id="6_gkdx4"]
-[ext_resource type="Texture2D" uid="uid://c223h8twhdvul" path="res://Assets/pixil-frame-0 (1).png" id="7_7bb7o"]
-[ext_resource type="Texture2D" uid="uid://dkqqtxa6r5xaq" path="res://Assets/Death.png" id="8_k5lcd"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ybedg"]
-font_size = 60
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_6mj87"]
-animations = [{
-"frames": [{
-"duration": 5.0,
-"texture": ExtResource("3_6s356")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_1h3hf")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_vic81")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_gkdx4")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_7bb7o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_f2i5n")
-}],
-"loop": false,
-"name": &"EyesOpen",
-"speed": 20.0
-}]
+[ext_resource type="Texture2D" uid="uid://dkqqtxa6r5xaq" path="res://Assets/Icons/Death.png" id="2_7ahps"]
+[ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/Icons/soul.png" id="4_g8ntc"]
+[ext_resource type="Texture2D" uid="uid://b0xh60rrfcnot" path="res://Assets/Anubis/Eyes/pixil-frame-0 (6).png" id="5_gdl8f"]
+[ext_resource type="Texture2D" uid="uid://bipsoskot2b62" path="res://Assets/Anubis/Eyes/pixil-frame-0 (5).png" id="6_5l0e0"]
+[ext_resource type="Texture2D" uid="uid://cy8tqfmavbb0v" path="res://Assets/Anubis/Eyes/pixil-frame-0 (4).png" id="7_lwg3n"]
+[ext_resource type="Texture2D" uid="uid://c5tgv83uryobx" path="res://Assets/Anubis/Eyes/pixil-frame-0 (2).png" id="8_nlicc"]
+[ext_resource type="Texture2D" uid="uid://c223h8twhdvul" path="res://Assets/Anubis/Eyes/pixil-frame-0 (1).png" id="9_i54ca"]
+[ext_resource type="Texture2D" uid="uid://btg4kt2a8u0wg" path="res://Assets/Anubis/Eyes/AnubisEyes.png" id="10_cf5jv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vhdlf"]
 font_size = 30
 
 [sub_resource type="LabelSettings" id="LabelSettings_h41ma"]
 font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_ybedg"]
+font_size = 60
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6mj87"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"eyes_closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("5_gdl8f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5l0e0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lwg3n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nlicc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_i54ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_cf5jv")
+}],
+"loop": false,
+"name": &"eyes_open",
+"speed": 20.0
+}]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yrxky"]
 font_size = 30
@@ -59,98 +64,87 @@ script = ExtResource("1_cfqvc")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -222.0
-offset_top = -15.0
-offset_right = 72.0
-offset_bottom = 85.0
-grow_horizontal = 0
-size_flags_horizontal = 8
+[node name="LeftBox" type="VBoxContainer" parent="CanvasLayer"]
+offset_right = 213.0
+offset_bottom = 314.0
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+[node name="Score" type="MarginContainer" parent="CanvasLayer/LeftBox"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/LeftBox/Score"]
+layout_mode = 2
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_vhdlf")
+
+[node name="SellLevel" type="MarginContainer" parent="CanvasLayer/LeftBox"]
 layout_mode = 2
 
-[node name="Souls" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+[node name="LevelLabel" type="Label" parent="CanvasLayer/LeftBox/SellLevel"]
+layout_mode = 2
+text = "current sell level: "
+label_settings = SubResource("LabelSettings_h41ma")
+
+[node name="AllegianceIcon" type="TextureRect" parent="CanvasLayer/LeftBox"]
+texture_filter = 1
+layout_mode = 2
+texture = ExtResource("2_7ahps")
+expand_mode = 4
+
+[node name="SoulContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 100.0
+grow_horizontal = 2
+alignment = 2
+
+[node name="SoulLabel" type="Label" parent="CanvasLayer/SoulContainer"]
 texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
 text = "0"
 label_settings = SubResource("LabelSettings_ybedg")
 
-[node name="MarginContainer4" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer/MarginContainer4"]
-visible = false
+[node name="SoulIcon" type="TextureRect" parent="CanvasLayer/SoulContainer"]
 texture_filter = 1
 layout_mode = 2
-texture = ExtResource("2_f2i5n")
-expand_mode = 2
+texture = ExtResource("4_g8ntc")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-offset_left = 421.0
-offset_right = 903.0
-offset_bottom = 92.0
+[node name="EyeContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -213.5
+offset_right = 286.5
+offset_bottom = 249.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Eyes" type="MarginContainer" parent="CanvasLayer/EyeContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/EyeContainer/Eyes"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
 color = Color(0, 0, 0, 1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/ColorRect"]
+[node name="EyeSprite" type="AnimatedSprite2D" parent="CanvasLayer/EyeContainer/Eyes"]
 texture_filter = 1
-position = Vector2(239, 55)
 scale = Vector2(9.945, 9.48)
 sprite_frames = SubResource("SpriteFrames_6mj87")
-animation = &"EyesOpen"
+animation = &"eyes_closed"
+autoplay = "eyes_closed"
+centered = false
+offset = Vector2(0, -20)
 
-[node name="MarginContainer6" type="MarginContainer" parent="CanvasLayer"]
-offset_left = 41.0
-offset_top = -7.0
-offset_right = 102.0
-offset_bottom = 93.0
-
-[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer6"]
+[node name="Allegiance" type="MarginContainer" parent="CanvasLayer/EyeContainer"]
 layout_mode = 2
-text = "Score: 0"
-label_settings = SubResource("LabelSettings_vhdlf")
+size_flags_horizontal = 4
+size_flags_vertical = 0
 
-[node name="MarginContainer5" type="MarginContainer" parent="CanvasLayer"]
-offset_left = 937.0
-offset_top = 61.0
-offset_right = 1150.0
-offset_bottom = 101.0
-
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer5"]
-layout_mode = 2
-text = "current sell level: "
-label_settings = SubResource("LabelSettings_h41ma")
-
-[node name="MarginContainer7" type="MarginContainer" parent="CanvasLayer"]
-offset_left = 280.0
-offset_top = -4.0
-offset_right = 398.0
-offset_bottom = 96.0
-
-[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/MarginContainer7"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("8_k5lcd")
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-texture_filter = 1
-offset_left = 237.0
-offset_top = -49.0
-offset_right = 395.0
-offset_bottom = 133.0
-texture = ExtResource("4_emb7u")
-
-[node name="MarginContainer3" type="MarginContainer" parent="CanvasLayer"]
-offset_left = 427.0
-offset_top = 68.0
-offset_right = 854.0
-offset_bottom = 168.0
-
-[node name="De_Anu" type="Label" parent="CanvasLayer/MarginContainer3"]
+[node name="De_Anu" type="Label" parent="CanvasLayer/EyeContainer/Allegiance"]
 layout_mode = 2
 text = "Servant of the ancient Anubis"
 label_settings = SubResource("LabelSettings_yrxky")

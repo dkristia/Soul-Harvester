@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvmsp272pk55a"
-path="res://.godot/imported/anubis.png-1b7c4b90e2b5bf8e3ae3d526345b16ef.ctex"
+uid="uid://ddb3hpb72ns4w"
+path="res://.godot/imported/staff.png-d09424a5156ee3b453abb1d879f9b105.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/anubis.png"
-dest_files=["res://.godot/imported/anubis.png-1b7c4b90e2b5bf8e3ae3d526345b16ef.ctex"]
+source_file="res://Assets/Player/staff.png"
+dest_files=["res://.godot/imported/staff.png-d09424a5156ee3b453abb1d879f9b105.ctex"]
 
 [params]
 

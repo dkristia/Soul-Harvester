@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://btg4kt2a8u0wg"
-path="res://.godot/imported/AnubisEyes.png-3c9589a46e4ca0dc3d065f556db66d01.ctex"
+uid="uid://qwurswltabxu"
+path="res://.godot/imported/Anubisss.png-08a8c12e01453837eb51d16304fd8286.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/AnubisEyes.png"
-dest_files=["res://.godot/imported/AnubisEyes.png-3c9589a46e4ca0dc3d065f556db66d01.ctex"]
+source_file="res://Assets/Icons/Anubisss.png"
+dest_files=["res://.godot/imported/Anubisss.png-08a8c12e01453837eb51d16304fd8286.ctex"]
 
 [params]
 

@@ -4,8 +4,9 @@ extends CharacterBody2D
 
 var default_radius = Vector2(1, 1)
 
-var DashAvailable = true
+var ability_on_cooldown = false
 var dashedDistance = 0
+var directions
 
 func _ready():
 	var spawnpos = get_viewport().get_visible_rect().size/2
@@ -13,39 +14,26 @@ func _ready():
 	$MainSprite.play("Ddefault")
 
 func _physics_process(delta):
-	var directions = get_directions()
+	directions = get_directions()
 	
 	$PickupRadius.scale = default_radius * global.radius
-	
-	if Input.is_action_just_pressed("main_ability"):
-		_anubis_main_ability() if global.AnubisMode else _death_main_ability()
 	
 	if Input.get_action_strength("right") or Input.get_action_strength("left") or Input.get_action_strength("down") or Input.get_action_strength("up"):
 		playanim()
 	velocity = directions * global.speed * delta
 	
+	if Input.is_action_just_pressed("main_ability") and !ability_on_cooldown:
+		_anubis_main_ability() if global.AnubisMode else _death_main_ability()
+		ability_on_cooldown = true
+		var timer = $MainAbilityCooldown
+		timer.wait_time = 10 if global.AnubisMode else 4
+		timer.start()
+	
 	if  Input.is_action_just_pressed("left"):
 		$MainSprite.set_flip_h(true)
 	elif Input.is_action_just_pressed("right"):
 		$MainSprite.set_flip_h(false)
-	
-	if Input.is_action_pressed("Dash") and DashAvailable:
-		velocity = directions * global.speed * 5 * delta
-		dashedDistance += 45 * delta
-		
-		if dashedDistance > 10:
-			DashAvailable = false
-			
-			var timer = $Dashimer
-			timer.wait_time = 4
-			timer.start()
-	elif Input.is_action_just_released("Dash") and DashAvailable:
-			DashAvailable = false
-			
-			var timer = $Dashimer
-			timer.wait_time = 4
-			timer.start()
-			
+
 	move_and_slide()
 	
 func get_directions():
@@ -91,11 +79,11 @@ func _anubis_main_ability():
 		$PickupRadius.activated = true
 	
 func _death_main_ability():
-	print("DEATH")
+	global.speed *= 10
+	$DashTimer.start()
 
-func _on_dashimer_timeout():
-	DashAvailable=true
-	dashedDistance=0
+func _on_main_cooldown_timeout():
+	ability_on_cooldown=false
 
 func playanim():
 	if global.AnubisMode:
@@ -106,3 +94,8 @@ func playanim():
 		$MainSprite.play("Dwalking")
 		await $MainSprite.animation_finished
 		$MainSprite.play("Ddefault")
+
+
+func _on_dash_timer_timeout():
+	global.speed /= 10
+	$DashTimer.stop()

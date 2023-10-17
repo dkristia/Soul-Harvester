@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvms0uy1be86i"
-path="res://.godot/imported/radius.png-ed5e158ae71878157258af3e8810be11.ctex"
+uid="uid://b0xh60rrfcnot"
+path="res://.godot/imported/pixil-frame-0 (6).png-fce941385761ee7e79f5407ab73f3db3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/radius.png"
-dest_files=["res://.godot/imported/radius.png-ed5e158ae71878157258af3e8810be11.ctex"]
+source_file="res://Assets/Anubis/Eyes/pixil-frame-0 (6).png"
+dest_files=["res://.godot/imported/pixil-frame-0 (6).png-fce941385761ee7e79f5407ab73f3db3.ctex"]
 
 [params]
 

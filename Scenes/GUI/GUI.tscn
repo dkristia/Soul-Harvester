@@ -1,14 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://4plkn86vrwdo"]
+[gd_scene load_steps=18 format=3 uid="uid://4plkn86vrwdo"]
 
 [ext_resource type="Script" path="res://Scenes/GUI/GUI.gd" id="1_cfqvc"]
 [ext_resource type="Texture2D" uid="uid://dkqqtxa6r5xaq" path="res://Assets/Icons/Death.png" id="2_7ahps"]
-[ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/Icons/soul.png" id="4_g8ntc"]
+[ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/Human/soul.png" id="4_g8ntc"]
 [ext_resource type="Texture2D" uid="uid://b0xh60rrfcnot" path="res://Assets/Anubis/Eyes/pixil-frame-0 (6).png" id="5_gdl8f"]
 [ext_resource type="Texture2D" uid="uid://bipsoskot2b62" path="res://Assets/Anubis/Eyes/pixil-frame-0 (5).png" id="6_5l0e0"]
 [ext_resource type="Texture2D" uid="uid://cy8tqfmavbb0v" path="res://Assets/Anubis/Eyes/pixil-frame-0 (4).png" id="7_lwg3n"]
 [ext_resource type="Texture2D" uid="uid://c5tgv83uryobx" path="res://Assets/Anubis/Eyes/pixil-frame-0 (2).png" id="8_nlicc"]
 [ext_resource type="Texture2D" uid="uid://c223h8twhdvul" path="res://Assets/Anubis/Eyes/pixil-frame-0 (1).png" id="9_i54ca"]
 [ext_resource type="Texture2D" uid="uid://btg4kt2a8u0wg" path="res://Assets/Anubis/Eyes/AnubisEyes.png" id="10_cf5jv"]
+[ext_resource type="Script" path="res://Scenes/GUI/VBoxContainer.gd" id="10_kjkv1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_vhdlf"]
 font_size = 30
@@ -50,6 +51,12 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwnj0"]
+bg_color = Color(0.32549, 0.537255, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hlgf"]
+bg_color = Color(1, 0, 0, 1)
+
 [sub_resource type="LabelSettings" id="LabelSettings_yrxky"]
 font_size = 30
 
@@ -83,6 +90,14 @@ layout_mode = 2
 [node name="LevelLabel" type="Label" parent="CanvasLayer/LeftBox/SellLevel"]
 layout_mode = 2
 text = "current sell level: "
+label_settings = SubResource("LabelSettings_h41ma")
+
+[node name="Time" type="MarginContainer" parent="CanvasLayer/LeftBox"]
+layout_mode = 2
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/LeftBox/Time"]
+layout_mode = 2
+text = "Time Left: 69s"
 label_settings = SubResource("LabelSettings_h41ma")
 
 [node name="AllegianceIcon" type="TextureRect" parent="CanvasLayer/LeftBox"]
@@ -138,6 +153,22 @@ animation = &"eyes_closed"
 autoplay = "eyes_closed"
 centered = false
 offset = Vector2(0, -20)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EyeContainer/Eyes"]
+layout_mode = 2
+script = ExtResource("10_kjkv1")
+
+[node name="Good" type="HSlider" parent="CanvasLayer/EyeContainer/Eyes/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kwnj0")
+max_value = 200.0
+value = 100.0
+
+[node name="Bad" type="HSlider" parent="CanvasLayer/EyeContainer/Eyes/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2hlgf")
+max_value = 200.0
+value = 100.0
 
 [node name="Allegiance" type="MarginContainer" parent="CanvasLayer/EyeContainer"]
 layout_mode = 2

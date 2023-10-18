@@ -3,19 +3,19 @@
 [ext_resource type="Script" path="res://Objects/Player/player.gd" id="1_jhjqj"]
 [ext_resource type="Script" path="res://Objects/Player/PickupRadius.gd" id="2_k3vsl"]
 [ext_resource type="PackedScene" uid="uid://dk18t2m2vlsbr" path="res://Objects/Player/radius.tscn" id="3_5jch1"]
-[ext_resource type="Texture2D" uid="uid://ck3xp442fp54x" path="res://Assets/dude.png" id="4_6csju"]
+[ext_resource type="Texture2D" uid="uid://ck3xp442fp54x" path="res://Assets/Player/Anubis/dude.png" id="4_qlvbr"]
+[ext_resource type="Texture2D" uid="uid://cme67x4s7s4bc" path="res://Assets/Player/Anubis/Walk/walkframe1.png" id="5_bc2ii"]
 [ext_resource type="Script" path="res://Objects/Player/camera.gd" id="5_kan6u"]
-[ext_resource type="Texture2D" uid="uid://cme67x4s7s4bc" path="res://Assets/walkframe1.png" id="5_oapd5"]
 [ext_resource type="Script" path="res://Objects/Player/Staff.gd" id="6_5uqvr"]
-[ext_resource type="Texture2D" uid="uid://cbubsc2hpspsu" path="res://Assets/walkframe2.png" id="6_iwnyg"]
-[ext_resource type="Texture2D" uid="uid://dpjmrrl41y1xd" path="res://Assets/walkframe3.png" id="7_1g2y5"]
-[ext_resource type="Texture2D" uid="uid://ddb3hpb72ns4w" path="res://Assets/Player/staff.png" id="7_ylhwa"]
-[ext_resource type="Texture2D" uid="uid://6ksvt6g2abpn" path="res://Assets/walkframe4.png" id="8_tmb6x"]
-[ext_resource type="Texture2D" uid="uid://bkrjw0gm5ruqg" path="res://Assets/badDude.png" id="9_xjtff"]
-[ext_resource type="Texture2D" uid="uid://bl4jondkfqek" path="res://Assets/DwalkFrame1.png" id="10_p0kf5"]
-[ext_resource type="Texture2D" uid="uid://cac7bdv7pnhog" path="res://Assets/DwalkFrame2.png" id="11_ivvu1"]
-[ext_resource type="Texture2D" uid="uid://cds2qnghvqcsp" path="res://Assets/DwalkFrame3.png" id="12_un4ix"]
-[ext_resource type="Texture2D" uid="uid://d3nmrl71eoisw" path="res://Assets/DwalkFrame4.png" id="13_87fpd"]
+[ext_resource type="Texture2D" uid="uid://cbubsc2hpspsu" path="res://Assets/Player/Anubis/Walk/walkframe2.png" id="6_jquql"]
+[ext_resource type="Texture2D" uid="uid://dpjmrrl41y1xd" path="res://Assets/Player/Anubis/Walk/walkframe3.png" id="7_oc5nr"]
+[ext_resource type="Texture2D" uid="uid://6ksvt6g2abpn" path="res://Assets/Player/Anubis/Walk/walkframe4.png" id="8_uu0ue"]
+[ext_resource type="Texture2D" uid="uid://bkrjw0gm5ruqg" path="res://Assets/Player/Death/badDude.png" id="9_axl42"]
+[ext_resource type="Texture2D" uid="uid://bl4jondkfqek" path="res://Assets/Player/Death/Walk/DwalkFrame1.png" id="10_q3kug"]
+[ext_resource type="Texture2D" uid="uid://cac7bdv7pnhog" path="res://Assets/Player/Death/Walk/DwalkFrame2.png" id="11_sjqdt"]
+[ext_resource type="Texture2D" uid="uid://cds2qnghvqcsp" path="res://Assets/Player/Death/Walk/DwalkFrame3.png" id="12_0kju8"]
+[ext_resource type="Texture2D" uid="uid://d3nmrl71eoisw" path="res://Assets/Player/Death/Walk/DwalkFrame4.png" id="13_13j7t"]
+[ext_resource type="Texture2D" uid="uid://ddb3hpb72ns4w" path="res://Assets/Player/Anubis/Staff/staff.png" id="16_ldx2q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qokj"]
 
@@ -25,74 +25,74 @@
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_6csju")
+"texture": ExtResource("5_bc2ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jquql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bc2ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qlvbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oc5nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_uu0ue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_oc5nr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qlvbr")
 }],
 "loop": false,
-"name": &"Adefault",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("5_oapd5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_iwnyg")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_oapd5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_6csju")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_1g2y5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_tmb6x")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_1g2y5")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_6csju")
-}],
-"loop": false,
-"name": &"Awalking",
+"name": &"a_walk",
 "speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("9_xjtff")
+"texture": ExtResource("4_qlvbr")
 }],
 "loop": false,
-"name": &"Ddefault",
+"name": &"anubis",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_p0kf5")
+"texture": ExtResource("10_q3kug")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_ivvu1")
+"texture": ExtResource("11_sjqdt")
 }, {
 "duration": 1.0,
-"texture": ExtResource("10_p0kf5")
+"texture": ExtResource("10_q3kug")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_xjtff")
+"texture": ExtResource("9_axl42")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_un4ix")
+"texture": ExtResource("12_0kju8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_87fpd")
+"texture": ExtResource("13_13j7t")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_xjtff")
+"texture": ExtResource("9_axl42")
 }],
 "loop": false,
-"name": &"Dwalking",
+"name": &"d_walk",
 "speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_axl42")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dyyid"]
@@ -123,7 +123,7 @@ texture_filter = 1
 position = Vector2(0.500009, 14.25)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_id8y5")
-animation = &"Ddefault"
+animation = &"death"
 
 [node name="InnerPickupRadius" type="Area2D" parent="."]
 
@@ -142,7 +142,7 @@ script = ExtResource("5_kan6u")
 texture_filter = 1
 position = Vector2(120, 0)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_ylhwa")
+texture = ExtResource("16_ldx2q")
 
 [node name="MainAbilityCooldown" type="Timer" parent="."]
 wait_time = 5.0

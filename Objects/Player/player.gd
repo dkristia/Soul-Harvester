@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var global = $"/root/Global"
+@onready var game = get_parent()
 
 var default_radius = Vector2(1, 1)
 
@@ -14,7 +15,7 @@ var dashpos = Vector2(0, 0)
 func _ready():
 	var spawnpos = get_viewport().get_visible_rect().size/2
 	position = spawnpos
-	$MainSprite.play("Ddefault")
+	game._ready()
 
 func _physics_process(delta):
 	get_directions()
@@ -22,7 +23,7 @@ func _physics_process(delta):
 	$PickupRadius.scale = default_radius * global.radius
 	
 	if Input.get_action_strength("right") or Input.get_action_strength("left") or Input.get_action_strength("down") or Input.get_action_strength("up"):
-		playanim()
+		animate_walking()
 	
 	if dashing:
 		position = position.move_toward(dashpos, 5000*delta)
@@ -82,15 +83,15 @@ func death_main_ability():
 	if position.distance_to(dashpos) > 1500:
 		dashpos = position + (dashpos-position).normalized() * 1500
 
-func playanim():
+func animate_walking():
 	if global.AnubisMode:
-		$MainSprite.play("Awalking")
+		$MainSprite.play("a_walk")
 		await $MainSprite.animation_finished
-		$MainSprite.play("Adefault")
+		$MainSprite.play("anubis")
 	else:
-		$MainSprite.play("Dwalking")
+		$MainSprite.play("d_walk")
 		await $MainSprite.animation_finished
-		$MainSprite.play("Ddefault")
+		$MainSprite.play("death")
 
 func _on_main_cooldown_timeout():
 	ability_on_cooldown=false

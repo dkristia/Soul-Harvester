@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cac7bdv7pnhog"
-path="res://.godot/imported/DwalkFrame2.png-122e0dffe8b15759909dd72d978bdda0.ctex"
+uid="uid://cbubsc2hpspsu"
+path="res://.godot/imported/walkframe2.png-a07ffe598c7820f267b1983a0e0aac02.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DwalkFrame2.png"
-dest_files=["res://.godot/imported/DwalkFrame2.png-122e0dffe8b15759909dd72d978bdda0.ctex"]
+source_file="res://Assets/Player/Anubis/Walk/walkframe2.png"
+dest_files=["res://.godot/imported/walkframe2.png-a07ffe598c7820f267b1983a0e0aac02.ctex"]
 
 [params]
 

@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=3 uid="uid://fxcy6ik66bad"]
 
 [ext_resource type="Script" path="res://Objects/Soul/soul.gd" id="1_80oym"]
-[ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/Icons/soul.png" id="2_ydw8w"]
+[ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/Human/soul.png" id="2_e7y1j"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0sjfb"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_ydw8w")
+"texture": ExtResource("2_e7y1j")
 }],
 "loop": true,
 "name": &"default",

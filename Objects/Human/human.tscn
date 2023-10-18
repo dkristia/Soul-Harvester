@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7c21lsb7oyvi"]
 
-[ext_resource type="Texture2D" uid="uid://b0ibqxh3vhquk" path="res://Assets/citizen.png" id="1_icdcx"]
 [ext_resource type="Script" path="res://Objects/Human/human.gd" id="1_ix0mk"]
+[ext_resource type="Texture2D" uid="uid://b0ibqxh3vhquk" path="res://Assets/Human/citizen.png" id="2_c7xsg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gi75"]
 size = Vector2(29, 47)
@@ -12,7 +12,7 @@ script = ExtResource("1_ix0mk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_icdcx")
+texture = ExtResource("2_c7xsg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -0.5)

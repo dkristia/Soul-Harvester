@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cds2qnghvqcsp"
-path="res://.godot/imported/DwalkFrame3.png-2380cebe46f49fb036b5e4f7650fbcbc.ctex"
+uid="uid://bkrjw0gm5ruqg"
+path="res://.godot/imported/badDude.png-845916d28e8cbc7892597159ee623953.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DwalkFrame3.png"
-dest_files=["res://.godot/imported/DwalkFrame3.png-2380cebe46f49fb036b5e4f7650fbcbc.ctex"]
+source_file="res://Assets/Player/Death/badDude.png"
+dest_files=["res://.godot/imported/badDude.png-845916d28e8cbc7892597159ee623953.ctex"]
 
 [params]
 

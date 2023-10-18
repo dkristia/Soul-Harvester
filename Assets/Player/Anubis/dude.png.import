@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkrjw0gm5ruqg"
-path="res://.godot/imported/badDude.png-bd6e86bce3b379e80abea61915348c0e.ctex"
+uid="uid://ck3xp442fp54x"
+path="res://.godot/imported/dude.png-edf4b12b901e5d3d8f687c1cad4f28e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/badDude.png"
-dest_files=["res://.godot/imported/badDude.png-bd6e86bce3b379e80abea61915348c0e.ctex"]
+source_file="res://Assets/Player/Anubis/dude.png"
+dest_files=["res://.godot/imported/dude.png-edf4b12b901e5d3d8f687c1cad4f28e4.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-var time = 60
+var time = 120
 var animationPlayed = false
 @onready var _soul = preload("res://Objects/Human/human.tscn")
 @onready var global = $"/root/Global"
@@ -19,7 +19,8 @@ func _ready():
 
 func _process(delta):
 	_time_label.text = "Time left: " + str(round(time))
-	if time <= 0:
+	if time < 0:
+		time = 0
 		global.dead = true
 	else:
 		time -= delta
@@ -33,12 +34,12 @@ func _process(delta):
 			print("death")
 			global.score += global.souls * global.sLevel * 2
 			global.bad += global.souls
-			global.good -= global.souls/2
 			time += global.souls * global.sLevel / 2
 		else:
 			print("good")
-			global.good += global.souls * global.sLevel 
+			global.good += global.souls * global.sLevel
 			global.score += global.souls * global.sLevel
+			global.bad -= global.souls
 		global.souls = 0
 	
 	if global.dead and !animationPlayed:
@@ -46,7 +47,7 @@ func _process(delta):
 		await _animated_sprite.animation_finished
 		animationPlayed = true
 	
-	if  global.bad/global.good > 2:
+	if global.good <= 0 or global.bad/global.good >= 2:
 		global.dead = true
 		
 func _on_soul_spawner_timeout():

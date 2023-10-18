@@ -147,10 +147,10 @@ texture = ExtResource("16_ldx2q")
 [node name="MainAbilityCooldown" type="Timer" parent="."]
 wait_time = 5.0
 
-[node name="DashTimer" type="Timer" parent="."]
-wait_time = 4.0
+[node name="SecondaryCooldown" type="Timer" parent="."]
+wait_time = 5.0
 
 [connection signal="area_entered" from="PickupRadius" to="." method="_on_pickup_radius_area_entered"]
 [connection signal="area_entered" from="InnerPickupRadius" to="." method="_on_inner_pickup_radius_area_entered"]
 [connection signal="timeout" from="MainAbilityCooldown" to="." method="_on_main_cooldown_timeout"]
-[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="SecondaryCooldown" to="." method="_on_secondary_cooldown_timeout"]

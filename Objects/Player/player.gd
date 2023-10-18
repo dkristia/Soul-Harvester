@@ -2,10 +2,12 @@ extends CharacterBody2D
 
 @onready var global = $"/root/Global"
 @onready var game = get_parent()
+@onready var staff_projectile = preload("res://Objects/Projectile/staff_projectile.tscn")
 
 var default_radius = Vector2(1, 1)
 
 var ability_on_cooldown = false
+var sec_ability_on_cooldown = false
 var dashedDistance = 0
 var directions
 var dashing = false
@@ -37,6 +39,13 @@ func _physics_process(delta):
 		anubis_main_ability() if global.AnubisMode else death_main_ability()
 		ability_on_cooldown = true
 		var timer = $MainAbilityCooldown
+		timer.wait_time = 10 if global.AnubisMode else 10
+		timer.start()
+
+	if Input.is_action_just_pressed("secondary_ability") and !sec_ability_on_cooldown:
+		anubis_secondary_ability() if global.AnubisMode else death_secondary_ability()
+		sec_ability_on_cooldown = true
+		var timer = $SecondaryCooldown
 		timer.wait_time = 10 if global.AnubisMode else 4
 		timer.start()
 	
@@ -75,7 +84,18 @@ func anubis_main_ability():
 		global.ability_radius_multiplier = 10
 		$PickupRadius.activated = true
 
+func anubis_secondary_ability():
+	pass
+
 func death_main_ability():
+	var staff = staff_projectile.instantiate()
+	staff.target = get_global_mouse_position()
+	staff.position = position
+	staff.target = position + (staff.target-position).normalized() * 2000
+	add_sibling(staff)
+	$Staff.modulate.a = 0
+
+func death_secondary_ability():
 	dashing = true
 	global.ability_radius_multiplier = 2
 	startpos = position
@@ -94,11 +114,7 @@ func animate_walking():
 		$MainSprite.play("death")
 
 func _on_main_cooldown_timeout():
-	ability_on_cooldown=false
-
-func _on_dash_timer_timeout():
-	global.speed /= 1 if global.AnubisMode else 10
-	$DashTimer.stop()
+	ability_on_cooldown = false
 
 func _on_pickup_radius_area_entered(area):
 	if area.is_in_group("soul"):
@@ -106,6 +122,7 @@ func _on_pickup_radius_area_entered(area):
 		area.picked_up = true
 	elif area.is_in_group("human") and dashing:
 		area.call_deferred("kill")
+		global.good -= 1
 
 func _on_inner_pickup_radius_area_entered(area):
 	if area.is_in_group("soul"):
@@ -113,3 +130,7 @@ func _on_inner_pickup_radius_area_entered(area):
 		if global.souls == 5 * global.sLevel ** 2:
 			global.sLevel += 1
 		area.queue_free()
+
+
+func _on_secondary_cooldown_timeout():
+	sec_ability_on_cooldown = false

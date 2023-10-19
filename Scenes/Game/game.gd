@@ -55,7 +55,7 @@ func _on_soul_spawner_timeout():
 	add_child(soul)
 
 func refresh_mode():
-	global.speed = 20 if global.AnubisMode else 40
+	global.speed = 40 if global.AnubisMode else 60
 	_allegiance_icon.texture = anubis_path if global.AnubisMode == true else death_path
 	playersprite.play("anubis" if global.AnubisMode else "death")
 	global.souls = 0

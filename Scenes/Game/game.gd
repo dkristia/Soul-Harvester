@@ -5,7 +5,7 @@ var time = 120
 var animationPlayed = false
 @onready var _soul = preload("res://Objects/Human/human.tscn")
 @onready var global = $"/root/Global"
-@onready var _animated_sprite = $GUI/CanvasLayer/EyeContainer/Eyes/EyeSprite
+@onready var _animated_sprite = $GUI/CanvasLayer/EyeContainer/MarginContainer/anubis3/EyeSprite
 @onready var _allegiance_icon = $GUI/CanvasLayer/LeftBox/AllegianceIcon
 @onready var _time_label = $GUI/CanvasLayer/LeftBox/Time/TimeLabel
 @onready var player = $Player
@@ -15,6 +15,8 @@ var death_path = preload("res://Assets/Icons/Death.png")
 
 
 func _ready():
+	for i in range(100):
+		_on_soul_spawner_timeout()
 	refresh_mode()
 
 func _process(delta):
@@ -52,7 +54,7 @@ func _process(delta):
 		
 func _on_soul_spawner_timeout():
 	var soul = _soul.instantiate() 
-	add_child(soul)
+	add_child.call_deferred(soul)
 
 func refresh_mode():
 	global.speed = 40 if global.AnubisMode else 60

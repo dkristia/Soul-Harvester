@@ -10,10 +10,10 @@ var _soul = preload("res://Objects/Soul/soul.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var screen = get_viewport().get_visible_rect().size * 2
+	randomize()
 	position = Vector2(
-		screen.x * randf(),
-		screen.y * randf()
+		randf_range(-3700, 3700),
+		randf_range(-3700, 3700)
 	)
 	_on_timer_2_timeout()
 

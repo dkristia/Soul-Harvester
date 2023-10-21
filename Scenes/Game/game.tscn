@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_f5epg"]
 [ext_resource type="PackedScene" uid="uid://cjb5sf04lvpfr" path="res://Objects/Player/player.tscn" id="1_vj3yr"]
+[ext_resource type="Texture2D" uid="uid://dr4rvk83n1fgm" path="res://Assets/World/tilemap.png" id="2_pxqkd"]
 [ext_resource type="PackedScene" uid="uid://4plkn86vrwdo" path="res://Scenes/GUI/GUI.tscn" id="4_a5h50"]
-[ext_resource type="Texture2D" uid="uid://dr4rvk83n1fgm" path="res://tilemap.png" id="4_snvej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_eqil7"]
-texture = ExtResource("4_snvej")
+texture = ExtResource("2_pxqkd")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -35,6 +35,7 @@ layer_0/tile_data = PackedInt32Array(-720891, 65536, 1, -2621440, 65536, 0, -255
 [node name="Player" parent="." instance=ExtResource("1_vj3yr")]
 
 [node name="SoulSpawner" type="Timer" parent="."]
+wait_time = 0.1
 autostart = true
 
 [node name="GUI" parent="." instance=ExtResource("4_a5h50")]

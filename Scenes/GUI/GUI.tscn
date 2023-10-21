@@ -1,24 +1,31 @@
-[gd_scene load_steps=18 format=3 uid="uid://4plkn86vrwdo"]
+[gd_scene load_steps=17 format=3 uid="uid://4plkn86vrwdo"]
 
 [ext_resource type="Script" path="res://Scenes/GUI/GUI.gd" id="1_cfqvc"]
 [ext_resource type="Texture2D" uid="uid://dkqqtxa6r5xaq" path="res://Assets/Icons/Death.png" id="2_7ahps"]
+[ext_resource type="FontFile" uid="uid://boiyom5nqpg3o" path="res://Assets/Font/Retro Gaming.ttf" id="3_1b0sb"]
+[ext_resource type="LabelSettings" uid="uid://tm2nnxv0g1ee" path="res://Scenes/GUI/lable.tres" id="4_b63vm"]
 [ext_resource type="Texture2D" uid="uid://bjh5nlvywuuhh" path="res://Assets/Human/soul.png" id="4_g8ntc"]
+[ext_resource type="PackedScene" uid="uid://cnks7lsr6da2l" path="res://Scenes/Anubis/anubis.tscn" id="4_qbwvy"]
 [ext_resource type="Texture2D" uid="uid://b0xh60rrfcnot" path="res://Assets/Anubis/Eyes/pixil-frame-0 (6).png" id="5_gdl8f"]
 [ext_resource type="Texture2D" uid="uid://bipsoskot2b62" path="res://Assets/Anubis/Eyes/pixil-frame-0 (5).png" id="6_5l0e0"]
 [ext_resource type="Texture2D" uid="uid://cy8tqfmavbb0v" path="res://Assets/Anubis/Eyes/pixil-frame-0 (4).png" id="7_lwg3n"]
 [ext_resource type="Texture2D" uid="uid://c5tgv83uryobx" path="res://Assets/Anubis/Eyes/pixil-frame-0 (2).png" id="8_nlicc"]
 [ext_resource type="Texture2D" uid="uid://c223h8twhdvul" path="res://Assets/Anubis/Eyes/pixil-frame-0 (1).png" id="9_i54ca"]
 [ext_resource type="Texture2D" uid="uid://btg4kt2a8u0wg" path="res://Assets/Anubis/Eyes/AnubisEyes.png" id="10_cf5jv"]
-[ext_resource type="Script" path="res://Scenes/GUI/VBoxContainer.gd" id="10_kjkv1"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_vhdlf"]
-font_size = 30
+[sub_resource type="LabelSettings" id="LabelSettings_p66fe"]
+font = ExtResource("3_1b0sb")
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_h41ma"]
-font_size = 25
-
-[sub_resource type="LabelSettings" id="LabelSettings_ybedg"]
-font_size = 60
+[sub_resource type="LabelSettings" id="LabelSettings_5xpbe"]
+font = ExtResource("3_1b0sb")
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6mj87"]
 animations = [{
@@ -51,14 +58,12 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwnj0"]
-bg_color = Color(0.32549, 0.537255, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hlgf"]
-bg_color = Color(1, 0, 0, 1)
-
-[sub_resource type="LabelSettings" id="LabelSettings_yrxky"]
-font_size = 30
+[sub_resource type="LabelSettings" id="LabelSettings_1dfaa"]
+font = ExtResource("3_1b0sb")
+font_size = 20
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="GUI" type="Control"]
 layout_mode = 3
@@ -72,33 +77,37 @@ script = ExtResource("1_cfqvc")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="LeftBox" type="VBoxContainer" parent="CanvasLayer"]
-offset_right = 213.0
-offset_bottom = 314.0
+offset_left = 11.0
+offset_right = 251.0
+offset_bottom = 349.0
 
 [node name="Score" type="MarginContainer" parent="CanvasLayer/LeftBox"]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
 [node name="ScoreLabel" type="Label" parent="CanvasLayer/LeftBox/Score"]
+texture_filter = 1
 layout_mode = 2
 text = "Score: 0"
-label_settings = SubResource("LabelSettings_vhdlf")
+label_settings = SubResource("LabelSettings_p66fe")
 
 [node name="SellLevel" type="MarginContainer" parent="CanvasLayer/LeftBox"]
 layout_mode = 2
 
 [node name="LevelLabel" type="Label" parent="CanvasLayer/LeftBox/SellLevel"]
+texture_filter = 1
 layout_mode = 2
 text = "current sell level: "
-label_settings = SubResource("LabelSettings_h41ma")
+label_settings = SubResource("LabelSettings_p66fe")
 
 [node name="Time" type="MarginContainer" parent="CanvasLayer/LeftBox"]
 layout_mode = 2
 
 [node name="TimeLabel" type="Label" parent="CanvasLayer/LeftBox/Time"]
+texture_filter = 1
 layout_mode = 2
 text = "Time Left: 69s"
-label_settings = SubResource("LabelSettings_h41ma")
+label_settings = SubResource("LabelSettings_5xpbe")
 
 [node name="AllegianceIcon" type="TextureRect" parent="CanvasLayer/LeftBox"]
 texture_filter = 1
@@ -118,7 +127,7 @@ texture_filter = 1
 layout_mode = 2
 size_flags_horizontal = 8
 text = "0"
-label_settings = SubResource("LabelSettings_ybedg")
+label_settings = ExtResource("4_b63vm")
 
 [node name="SoulIcon" type="TextureRect" parent="CanvasLayer/SoulContainer"]
 texture_filter = 1
@@ -133,42 +142,24 @@ offset_left = -213.5
 offset_right = 286.5
 offset_bottom = 249.0
 grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 
-[node name="Eyes" type="MarginContainer" parent="CanvasLayer/EyeContainer"]
-custom_minimum_size = Vector2(0, 100)
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/EyeContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="anubis3" parent="CanvasLayer/EyeContainer/MarginContainer" instance=ExtResource("4_qbwvy")]
+custom_minimum_size = Vector2(300, 220)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer/EyeContainer/Eyes"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-color = Color(0, 0, 0, 1)
-
-[node name="EyeSprite" type="AnimatedSprite2D" parent="CanvasLayer/EyeContainer/Eyes"]
+[node name="EyeSprite" type="AnimatedSprite2D" parent="CanvasLayer/EyeContainer/MarginContainer/anubis3"]
 texture_filter = 1
+position = Vector2(-123.5, 100)
 scale = Vector2(9.945, 9.48)
 sprite_frames = SubResource("SpriteFrames_6mj87")
 animation = &"eyes_closed"
 autoplay = "eyes_closed"
 centered = false
 offset = Vector2(0, -20)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/EyeContainer/Eyes"]
-layout_mode = 2
-script = ExtResource("10_kjkv1")
-
-[node name="Good" type="HSlider" parent="CanvasLayer/EyeContainer/Eyes/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_kwnj0")
-max_value = 200.0
-value = 100.0
-
-[node name="Bad" type="HSlider" parent="CanvasLayer/EyeContainer/Eyes/VBoxContainer"]
-layout_mode = 2
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_2hlgf")
-max_value = 200.0
-value = 100.0
 
 [node name="Allegiance" type="MarginContainer" parent="CanvasLayer/EyeContainer"]
 layout_mode = 2
@@ -178,4 +169,4 @@ size_flags_vertical = 0
 [node name="De_Anu" type="Label" parent="CanvasLayer/EyeContainer/Allegiance"]
 layout_mode = 2
 text = "Servant of the ancient Anubis"
-label_settings = SubResource("LabelSettings_yrxky")
+label_settings = SubResource("LabelSettings_1dfaa")

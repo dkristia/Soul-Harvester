@@ -1,8 +1,8 @@
 extends Control
 
-@onready var stick = $CanvasLayer/stick
-@onready var holder1 = $CanvasLayer/stick/holder
-@onready var holder2 = $CanvasLayer/stick/holder2
+@onready var stick = $handle/stick
+@onready var holder1 = $handle/stick/holder
+@onready var holder2 = $handle/stick/holder2
 @onready var global = $"/root/Global"
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,18 +19,3 @@ func _process(delta):
 
 	holder1.rotation = -stick.rotation
 	holder2.rotation = -stick.rotation
-	
-	
-	if Input.is_action_pressed("down"):
-		global.good -= 1
-	if Input.is_action_pressed("up"):
-		global.good += 1
-		
-	if Input.is_action_pressed("left"):
-		global.bad -= 1
-	if Input.is_action_pressed("right"):
-		global.bad += 1
-		
-	
-	holder1.get_node("Label").text = str(snapped(global.good, 0.01))
-	holder2.get_node("Label").text = str(snapped(global.bad, pow(10, -3)))

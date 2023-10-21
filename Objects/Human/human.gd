@@ -20,6 +20,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position += Vector2(_random_numberx, _random_numbery) * delta * 60
+	if position.x > 3700:
+		position.x = 3700
+	elif position.x < -3700:
+		position.x = -3700
+	if position.y > 3700:
+		position.y = 3700
+	elif position.y < -3700:
+		position.y = -3700
 
 func _on_timer_2_timeout():
 	var timer = $Timer2

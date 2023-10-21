@@ -54,6 +54,15 @@ func _physics_process(delta):
 		$MainSprite.set_flip_h(true)
 	elif Input.is_action_just_pressed("right"):
 		$MainSprite.set_flip_h(false)
+		
+	if position.x > 3700:
+		position.x = 3700
+	elif position.x < -3700:
+		position.x = -3700
+	if position.y > 3700:
+		position.y = 3700
+	elif position.y < -3700:
+		position.y = -3700
 
 	move_and_slide()
 	

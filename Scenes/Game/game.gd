@@ -45,9 +45,11 @@ func _process(delta):
 		global.souls = 0
 	
 	if global.dead and !animationPlayed:
+		$GUI/CanvasLayer/ColorRect.visible = true
 		_animated_sprite.play("eyes_open")
 		await _animated_sprite.animation_finished
 		animationPlayed = true
+		get_tree().paused = true
 	
 	if global.good <= 0 or global.bad/global.good >= 2:
 		global.dead = true
@@ -57,6 +59,8 @@ func _on_soul_spawner_timeout():
 	add_child.call_deferred(soul)
 
 func refresh_mode():
+	$Lava.visible = false if global.AnubisMode else true
+	$Sand.visible = true if global.AnubisMode else false
 	global.speed = 40 if global.AnubisMode else 60
 	_allegiance_icon.texture = anubis_path if global.AnubisMode == true else death_path
 	playersprite.play("anubis" if global.AnubisMode else "death")

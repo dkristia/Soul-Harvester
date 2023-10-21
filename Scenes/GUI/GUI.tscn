@@ -152,9 +152,10 @@ custom_minimum_size = Vector2(300, 220)
 layout_mode = 2
 
 [node name="EyeSprite" type="AnimatedSprite2D" parent="CanvasLayer/EyeContainer/MarginContainer/anubis3"]
+z_index = 5
 texture_filter = 1
-position = Vector2(-123.5, 100)
-scale = Vector2(9.945, 9.48)
+position = Vector2(-311.5, 284)
+scale = Vector2(18.9814, 18.0939)
 sprite_frames = SubResource("SpriteFrames_6mj87")
 animation = &"eyes_closed"
 autoplay = "eyes_closed"
@@ -170,3 +171,12 @@ size_flags_vertical = 0
 layout_mode = 2
 text = "Servant of the ancient Anubis"
 label_settings = SubResource("LabelSettings_1dfaa")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.533333)

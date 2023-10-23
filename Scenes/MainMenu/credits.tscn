@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=3 uid="uid://5sn233pgybq8"]
+
+[ext_resource type="Script" path="res://Scenes/MainMenu/credits.gd" id="1_0bxrk"]
+[ext_resource type="FontFile" uid="uid://boiyom5nqpg3o" path="res://Assets/Font/Retro Gaming.ttf" id="1_l684h"]
+[ext_resource type="Texture2D" uid="uid://ba63o0rmfsyoi" path="res://Assets/WildJam/62-Harvest.png" id="2_75ndj"]
+[ext_resource type="Texture2D" uid="uid://dv3x2ph4d2f0n" path="res://Assets/WildJam/one-or-two.png" id="3_qud1i"]
+[ext_resource type="Texture2D" uid="uid://dom7oqeyou2pl" path="res://Assets/Icons/backbutton.png" id="5_rtqm7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ucipf"]
+font = ExtResource("1_l684h")
+font_size = 60
+font_color = Color(0.980392, 0.380392, 0.286275, 1)
+outline_size = 20
+outline_color = Color(0.0784314, 0.133333, 0.25098, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qxuj8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vt64k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5aox"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eicky"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ox8s4"]
+
+[node name="Credits" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0bxrk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.152941, 0.203922, 0.305882, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -535.0
+offset_top = 36.0
+offset_right = 535.0
+offset_bottom = 116.0
+grow_horizontal = 2
+text = "Made for Godot Wild Jam #62"
+label_settings = SubResource("LabelSettings_ucipf")
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Label"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = 227.0
+offset_right = 2685.0
+offset_bottom = 997.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 8
+texture = ExtResource("2_75ndj")
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Label"]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -526.0
+offset_top = 67.0
+offset_right = 224.0
+offset_bottom = 1117.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 8
+texture = ExtResource("3_qud1i")
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_qxuj8")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_vt64k")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i5aox")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_eicky")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ox8s4")
+icon = ExtResource("5_rtqm7")
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

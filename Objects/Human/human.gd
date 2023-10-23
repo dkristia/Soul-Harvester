@@ -1,7 +1,6 @@
 extends Area2D
 
 var isDead = false
-var rng = RandomNumberGenerator.new()
 @export var pickup_pos = Vector2(0, 0)
 var _random_numberx
 var _random_numbery
@@ -11,6 +10,8 @@ var _soul = preload("res://Objects/Soul/soul.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
+	$Timer3.wait_time = randf_range(10, 20)
+	$Timer3.start()
 	position = Vector2(
 		randf_range(-3700, 3700),
 		randf_range(-3700, 3700)
@@ -31,17 +32,21 @@ func _process(delta):
 
 func _on_timer_2_timeout():
 	var timer = $Timer2
-	timer.wait_time=rng.randf_range(0, 5)
+	randomize()
+	timer.wait_time=randf_range(0, 5)
 	timer.start()
 
-	_random_numberx = rng.randf_range(-4.0, 4.0) 
-	_random_numbery = rng.randf_range(-3.0, 3.0) 
+	_random_numberx = randf_range(-4.0, 4.0) 
+	_random_numbery = randf_range(-3.0, 3.0) 
 
 func _on_timer_3_timeout():
-	var DEAD = rng.randi_range(1, 2)
-	if DEAD == 1:
+	randomize()
+	var DEAD = randf_range(0, 1)
+	if DEAD <= 0.5:
 		kill()
-		
+	$Timer3.wait_time = randf_range(5, 15)
+	$Timer3.start()
+	
 func kill():
 	var soul = _soul.instantiate()
 	soul.position = position

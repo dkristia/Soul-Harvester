@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var global = $"/root/Global"
 @onready var game = get_parent()
 @onready var staff_projectile = preload("res://Objects/Projectile/staff_projectile.tscn")
+@onready var _flash = preload("res://Scenes/Game/flash.tscn")
 
 var default_radius = Vector2(1, 1)
 
@@ -46,7 +47,7 @@ func _physics_process(delta):
 		anubis_secondary_ability() if global.AnubisMode else death_secondary_ability()
 		sec_ability_on_cooldown = true
 		var timer = $SecondaryCooldown
-		timer.wait_time = 10 if global.AnubisMode else 4
+		timer.wait_time = 20 if global.AnubisMode else 4
 		timer.start()
 	
 	
@@ -94,7 +95,15 @@ func anubis_main_ability():
 		$PickupRadius.activated = true
 
 func anubis_secondary_ability():
-	pass
+	var flash = _flash.instantiate()
+	get_parent().get_node("GUI").add_child(flash)
+	get_parent().time -= get_parent().time * 0.5
+	for human in get_parent().get_children():
+		if human.is_in_group("human"):
+			randomize()
+			var rand = randf_range(0, 100)
+			if rand <= 50:
+				human.call_deferred("kill")
 
 func death_main_ability():
 	var staff = staff_projectile.instantiate()

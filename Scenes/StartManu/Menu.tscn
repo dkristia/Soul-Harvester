@@ -1,14 +1,226 @@
-[gd_scene load_steps=2 format=3 uid="uid://c7qwsdk0q0q8g"]
+[gd_scene load_steps=17 format=3 uid="uid://c7qwsdk0q0q8g"]
 
 [ext_resource type="Script" path="res://Scenes/StartManu/Menu.gd" id="1_7l73n"]
+[ext_resource type="LabelSettings" uid="uid://tm2nnxv0g1ee" path="res://Scenes/GUI/lable.tres" id="2_25a0s"]
+[ext_resource type="Texture2D" uid="uid://cxodwqp24kl3n" path="res://Assets/Menu/death.png" id="2_vb2rl"]
+[ext_resource type="Texture2D" uid="uid://dbw3cfc3nqec1" path="res://Assets/Menu/anubis.png" id="3_nuj3t"]
+[ext_resource type="FontFile" uid="uid://boiyom5nqpg3o" path="res://Assets/Font/Retro Gaming.ttf" id="3_tdv8r"]
 
-[node name="Menu" type="Node2D"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ljwlp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxxd5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45iqq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qwfdw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hieos"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0et6"]
+font = ExtResource("3_tdv8r")
+font_size = 30
+font_color = Color(1, 0, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tld6k"]
+font = ExtResource("3_tdv8r")
+font_size = 15
+font_color = Color(1, 0.360784, 0, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_6ho76"]
+font = ExtResource("3_tdv8r")
+font_size = 15
+font_color = Color(1, 0.772549, 0.690196, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m2ghm"]
+font = ExtResource("3_tdv8r")
+font_size = 30
+font_color = Color(0.592157, 0.705882, 0, 1)
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_tds46"]
+font = ExtResource("3_tdv8r")
+font_size = 15
+font_color = Color(0, 0.698039, 0.619608, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_61sp3"]
+font = ExtResource("3_tdv8r")
+font_size = 15
+font_color = Color(0, 0.698039, 0.619608, 1)
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_7l73n")
 
-[node name="Play" type="Button" parent="."]
-offset_left = 69.0
-offset_top = 142.0
-offset_right = 1208.0
-offset_bottom = 576.0
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -74.5
+offset_right = 74.5
+offset_bottom = 26.0
+grow_horizontal = 2
+size_flags_vertical = 0
+text = "Select Your Saviour"
+label_settings = ExtResource("2_25a0s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 150
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(390, 600)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ljwlp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lxxd5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_45iqq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qwfdw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hieos")
+icon = ExtResource("2_vb2rl")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/Button"]
+layout_mode = 0
+offset_left = 111.0
+offset_top = 230.0
+offset_right = 341.0
+offset_bottom = 310.0
+text = "DEATH"
+label_settings = SubResource("LabelSettings_p0et6")
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 119.0
+offset_top = 285.0
+offset_right = 349.0
+offset_bottom = 365.0
+text = "Main Ability:"
+label_settings = SubResource("LabelSettings_tld6k")
+
+[node name="Label4" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 90.0
+offset_top = 381.0
+offset_right = 320.0
+offset_bottom = 461.0
+text = "Secondary Ability:"
+label_settings = SubResource("LabelSettings_tld6k")
+
+[node name="Label3" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 108.0
+offset_top = 315.0
+offset_right = 338.0
+offset_bottom = 395.0
+text = "Scythe Throw"
+label_settings = SubResource("LabelSettings_6ho76")
+
+[node name="Label5" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer/Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 115.0
+offset_top = 417.0
+offset_right = 345.0
+offset_bottom = 497.0
+text = "Death Dash"
+label_settings = SubResource("LabelSettings_6ho76")
+
+[node name="MarginContainer2" type="MarginContainer" parent="CanvasLayer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+
+[node name="Button" type="Button" parent="CanvasLayer/HBoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(390, 600)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ljwlp")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_lxxd5")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_45iqq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_qwfdw")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hieos")
+icon = ExtResource("3_nuj3t")
+icon_alignment = 1
+expand_icon = true
+
+[node name="Label" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer2/Button"]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 230.0
+offset_right = 335.0
+offset_bottom = 310.0
+text = "ANUBIS"
+label_settings = SubResource("LabelSettings_m2ghm")
+
+[node name="Label2" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer2/Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 119.0
+offset_top = 285.0
+offset_right = 349.0
+offset_bottom = 365.0
+text = "Main Ability:"
+label_settings = SubResource("LabelSettings_tds46")
+
+[node name="Label4" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer2/Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 90.0
+offset_top = 381.0
+offset_right = 320.0
+offset_bottom = 461.0
+text = "Secondary Ability:"
+label_settings = SubResource("LabelSettings_61sp3")
+
+[node name="Label3" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer2/Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 113.0
+offset_top = 315.0
+offset_right = 343.0
+offset_bottom = 395.0
+text = "Soul Vacuum"
+label_settings = SubResource("LabelSettings_6ho76")
+
+[node name="Label5" type="Label" parent="CanvasLayer/HBoxContainer/MarginContainer2/Button"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 132.0
+offset_top = 417.0
+offset_right = 362.0
+offset_bottom = 497.0
+text = "Time Skip"
+label_settings = SubResource("LabelSettings_6ho76")
+
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/HBoxContainer/MarginContainer2/Button" to="." method="_on_button2_pressed"]

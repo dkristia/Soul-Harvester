@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://wwfow3wd3cb1"]
+[gd_scene load_steps=13 format=3 uid="uid://wwfow3wd3cb1"]
 
 [ext_resource type="Script" path="res://Scenes/Game/game.gd" id="1_f5epg"]
 [ext_resource type="PackedScene" uid="uid://cjb5sf04lvpfr" path="res://Objects/Player/player.tscn" id="1_vj3yr"]
 [ext_resource type="Texture2D" uid="uid://c5h65c67uffsy" path="res://Assets/World/lavatilemap.png" id="2_llguk"]
 [ext_resource type="Texture2D" uid="uid://dr4rvk83n1fgm" path="res://Assets/World/tilemap.png" id="2_pxqkd"]
 [ext_resource type="PackedScene" uid="uid://4plkn86vrwdo" path="res://Scenes/GUI/GUI.tscn" id="4_a5h50"]
+[ext_resource type="AudioStream" uid="uid://cre3e18lbb8ef" path="res://Assets/Music/a-theme.wav" id="6_smpyx"]
+[ext_resource type="AudioStream" uid="uid://ddaqodptgd5sx" path="res://Assets/Music/d-theme.wav" id="7_y0ed0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57m6v"]
 resource_name = "lava"
@@ -75,9 +77,16 @@ layer_0/tile_data = PackedInt32Array(-2555944, 0, 0, -2555943, 65536, 0, -255594
 [node name="Player" parent="." instance=ExtResource("1_vj3yr")]
 
 [node name="SoulSpawner" type="Timer" parent="."]
-wait_time = 0.1
 autostart = true
 
 [node name="GUI" parent="." instance=ExtResource("4_a5h50")]
+
+[node name="AnubisTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_smpyx")
+autoplay = true
+
+[node name="DeathTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_y0ed0")
+autoplay = true
 
 [connection signal="timeout" from="SoulSpawner" to="." method="_on_soul_spawner_timeout"]

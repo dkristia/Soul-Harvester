@@ -1,0 +1,131 @@
+[gd_scene load_steps=7 format=3 uid="uid://c62odce45wavy"]
+
+[ext_resource type="FontFile" uid="uid://boiyom5nqpg3o" path="res://Assets/Font/Retro Gaming.ttf" id="1_co7vx"]
+[ext_resource type="Script" path="res://Scenes/MainMenu/MainMenu.gd" id="1_qnsj1"]
+[ext_resource type="Texture2D" uid="uid://cwck4sqtjshpb" path="res://Assets/Menu/deathface.png" id="3_xvl4o"]
+[ext_resource type="Texture2D" uid="uid://qwurswltabxu" path="res://Assets/Icons/Anubisss.png" id="4_dbkj5"]
+[ext_resource type="AudioStream" uid="uid://dkanqcqaj5fws" path="res://Assets/Music/angelic.mp3" id="5_2ktxo"]
+[ext_resource type="LabelSettings" uid="uid://tm2nnxv0g1ee" path="res://Scenes/GUI/lable.tres" id="5_ig6pr"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qnsj1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(10000, 0)
+layout_mode = 2
+color = Color(0.396078, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(10000, 0)
+layout_mode = 2
+color = Color(0.45098, 0.309804, 0, 1)
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -178.5
+offset_bottom = 178.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 300
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer2"]
+custom_minimum_size = Vector2(526.5, 357.75)
+layout_mode = 2
+texture = ExtResource("3_xvl4o")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -178.5
+offset_bottom = 178.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 300
+alignment = 2
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/HBoxContainer3"]
+custom_minimum_size = Vector2(526.5, 357.75)
+layout_mode = 2
+texture = ExtResource("4_dbkj5")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -188.5
+offset_top = -140.0
+offset_right = 188.5
+offset_bottom = 315.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_co7vx")
+theme_override_font_sizes/font_size = 60
+text = "Play Game"
+
+[node name="Button2" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_co7vx")
+theme_override_font_sizes/font_size = 60
+text = "Credits"
+
+[node name="Button3" type="Button" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_co7vx")
+theme_override_font_sizes/font_size = 60
+text = "Exit Game"
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 95.0
+offset_right = 20.0
+offset_bottom = 118.0
+grow_horizontal = 2
+text = "Soul Harvester"
+label_settings = ExtResource("5_ig6pr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2ktxo")
+autoplay = true
+
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

@@ -1,0 +1,88 @@
+[gd_scene load_steps=6 format=3 uid="uid://cdwrufxrogj28"]
+
+[ext_resource type="Script" path="res://Scenes/GUI/dead.gd" id="1_eb3if"]
+[ext_resource type="FontFile" uid="uid://boiyom5nqpg3o" path="res://Assets/Font/Retro Gaming.ttf" id="2_mp5m5"]
+[ext_resource type="AudioStream" uid="uid://bohxr2n4gs1a6" path="res://Assets/Music/satanic.mp3" id="3_lybvh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rmheg"]
+font = ExtResource("2_mp5m5")
+font_size = 30
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lm6fm"]
+font = ExtResource("2_mp5m5")
+font_size = 60
+outline_size = 20
+outline_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Dead" type="CanvasLayer"]
+script = ExtResource("1_eb3if")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.360784, 0, 0, 0.811765)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -281.0
+offset_top = 134.0
+offset_right = 281.0
+offset_bottom = 214.0
+grow_horizontal = 2
+text = "Final Score: 69"
+label_settings = SubResource("LabelSettings_rmheg")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -281.0
+offset_top = 33.0
+offset_right = 281.0
+offset_bottom = 113.0
+grow_horizontal = 2
+text = "You Died"
+label_settings = SubResource("LabelSettings_lm6fm")
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.5
+offset_top = 93.0
+offset_right = 128.5
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mp5m5")
+theme_override_font_sizes/font_size = 60
+text = "Back To Menu"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_mp5m5")
+theme_override_font_sizes/font_size = 60
+text = "Exit Game"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_lybvh")
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Button2" to="." method="_on_button_2_pressed"]

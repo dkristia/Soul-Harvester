@@ -1,16 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnks7lsr6da2l"]
+[gd_scene load_steps=5 format=3 uid="uid://dwbwxpnd7b2s1"]
 
-[ext_resource type="Script" path="res://Scenes/Anubis/anubis.gd" id="1_d82hm"]
-[ext_resource type="Texture2D" uid="uid://l4a1rtrgy1ya" path="res://Assets/scale/handle.png" id="2_fjvpa"]
-[ext_resource type="Texture2D" uid="uid://mjtv0kbu78bq" path="res://Assets/scale/stick.png" id="3_so5qa"]
-[ext_resource type="Texture2D" uid="uid://cqktkmf522tjo" path="res://Assets/scale/holder.png" id="4_w8ri2"]
+[ext_resource type="Script" path="res://Scenes/Anubis/anubis.gd" id="1_fb2ql"]
+[ext_resource type="Texture2D" uid="uid://l4a1rtrgy1ya" path="res://Assets/scale/handle.png" id="2_2cwsj"]
+[ext_resource type="Texture2D" uid="uid://mjtv0kbu78bq" path="res://Assets/scale/stick.png" id="3_4mguj"]
+[ext_resource type="Texture2D" uid="uid://cqktkmf522tjo" path="res://Assets/scale/holder.png" id="4_cii4c"]
 
 [node name="anubis3" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_d82hm")
+script = ExtResource("1_fb2ql")
 
 [node name="handle" type="TextureRect" parent="."]
 texture_filter = 1
@@ -28,7 +28,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
 pivot_offset = Vector2(23, 29)
-texture = ExtResource("2_fjvpa")
+texture = ExtResource("2_2cwsj")
 stretch_mode = 5
 
 [node name="stick" type="TextureRect" parent="handle"]
@@ -39,10 +39,11 @@ offset_top = 3.93651
 offset_right = 46.9031
 offset_bottom = 15.9365
 pivot_offset = Vector2(24, 6)
-texture = ExtResource("3_so5qa")
+texture = ExtResource("3_4mguj")
 stretch_mode = 5
 
 [node name="holder" type="TextureRect" parent="handle/stick"]
+modulate = Color(1, 0.392157, 0.392157, 1)
 show_behind_parent = true
 texture_filter = 1
 layout_mode = 2
@@ -51,10 +52,11 @@ offset_top = 5.0
 offset_right = 50.0
 offset_bottom = 33.0
 pivot_offset = Vector2(7, 0)
-texture = ExtResource("4_w8ri2")
+texture = ExtResource("4_cii4c")
 stretch_mode = 5
 
 [node name="holder2" type="TextureRect" parent="handle/stick"]
+modulate = Color(0.392157, 1, 0.392157, 1)
 show_behind_parent = true
 texture_filter = 1
 layout_mode = 0
@@ -63,5 +65,5 @@ offset_top = 5.0
 offset_right = 10.0
 offset_bottom = 33.0
 pivot_offset = Vector2(7, 0)
-texture = ExtResource("4_w8ri2")
+texture = ExtResource("4_cii4c")
 stretch_mode = 5

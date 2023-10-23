@@ -23,3 +23,17 @@ func _process(_delta):
 		bad = 0
 	if good < 0:
 		good = 0
+
+
+func reset_all():
+	levelModifier = 1
+	sLevel = 1
+	dead = false
+	souls = 0
+	good = 100
+	bad = 100
+	radius_multiplier = 1
+	class_multiplier = 1
+	ability_radius_multiplier = 1
+	radius = 1
+	speed = 40
